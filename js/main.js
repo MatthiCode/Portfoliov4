@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MUSÉE MATTHIEU BAYLE — comportement
+   MUSÉE MATTHIEU BAYLE : comportement
    GSAP + ScrollTrigger + Lenis. Pas de 3D.
    Ordre : 1) rendu du contenu  2) découpe du texte  3) Lenis  4) animations
    (créées dans l'ordre de la page, indispensable avec les sections épinglées)
@@ -35,15 +35,13 @@
     D.oeuvres.slice(0, 6).forEach(function (o, i) {
       var fig = document.createElement("figure");
       fig.className = "piece";
-      fig.dataset.cursor = "N° " + o.n;
       fig.style.setProperty("--ar", ratios[i % ratios.length]);
       fig.innerHTML =
-        '<span class="piece-num mono">N° ' + esc(o.n) + "</span>" +
         '<div class="frame"><div class="vis"></div></div>' +
         '<figcaption class="cartel"><b>' + esc(o.titre) + "</b>" +
         esc(o.annee) + " · " + esc(o.secteur) + "<br>" +
-        "Technique : " + esc(o.outils || "—") + "<br>" +
-        "Rôle : " + esc(o.role || "—") +
+        "Technique : " + esc(o.outils || "à renseigner") + "<br>" +
+        "Rôle : " + esc(o.role || "à renseigner") +
         (o.placeholder ? '<br><span class="ph-tag">Fiche d\'exemple</span>' : "") +
         "</figcaption>";
       gal.insertBefore(fig, end);
@@ -57,9 +55,9 @@
       var li = document.createElement(o.lien ? "li" : "li");
       li.className = "row" + (o.placeholder ? " is-ph" : "");
       var inner =
-        '<span class="n">' + esc(o.n) + '</span><span class="t">' + esc(o.titre) + '</span>' +
+        '<span class="t">' + esc(o.titre) + '</span>' +
         '<span class="s">' + esc(o.secteur) + '</span><span class="y">' + esc(o.annee) + "</span>" +
-        '<span class="go" aria-hidden="true">' + (o.lien ? "↗" : "") + "</span>";
+        '<span class="go" aria-hidden="true">' + (o.lien ? "Voir" : "") + "</span>";
       li.innerHTML = o.lien ? '<a href="' + esc(o.lien) + '" target="_blank" rel="noopener" style="display:contents">' + inner + "</a>" : inner;
       list.appendChild(li);
 
@@ -71,20 +69,23 @@
     // Fabrik Ta Pépite
     S.mountVisual($(".js-fabrik-vis"), { image: D.fabrik.image, scene: D.fabrik.scene, seed: D.fabrik.seed, alt: D.fabrik.nom });
     var steps = $(".steps");
-    D.fabrik.etapes.forEach(function (e, i) {
+    var trailLine = document.createElement("span");
+    trailLine.className = "steps-line";
+    trailLine.setAttribute("aria-hidden", "true");
+    steps.appendChild(trailLine);
+    D.fabrik.etapes.forEach(function (e) {
       var li = document.createElement("li");
       li.className = "step";
-      li.innerHTML = '<span class="n">0' + (i + 1) + "</span><div><h3>" + esc(e.t) + "</h3><p>" + esc(e.d) + "</p></div>";
+      li.innerHTML = '<span class="repere mono">' + esc(e.r) + "</span><h3>" + esc(e.t) + "</h3><p>" + esc(e.d) + "</p>";
       steps.appendChild(li);
     });
 
     // Prochaine exposition
     var amb = $(".amb-list");
-    D.ambitions.forEach(function (a, i) {
+    D.ambitions.forEach(function (a) {
       var el = document.createElement("article");
       el.className = "amb-card";
       el.innerHTML =
-        '<span class="n">' + ["i", "ii", "iii", "iv"][i] + "</span>" +
         "<h3>" + esc(a.titre) + "</h3><p>" + esc(a.texte) + "</p>" +
         '<div class="meter-wrap"><div class="meter-label mono"><span>Œuvre en cours</span><span class="js-pct" data-to="' + a.progression + '">' + a.progression + ' %</span></div>' +
         '<div class="meter" style="--p:' + a.progression / 100 + '"><span></span></div>' +
@@ -122,13 +123,21 @@
     });
 
     // Contact
-    var mail = $(".mail");
-    mail.href = "mailto:" + D.me.email;
     $(".mail-text").textContent = D.me.email;
+    $(".js-mailto").href = "mailto:" + D.me.email;
+    var copyBtn = $(".js-copy");
+    copyBtn.addEventListener("click", function () {
+      var done = function () {
+        copyBtn.firstChild.textContent = "Adresse copiée";
+        setTimeout(function () { copyBtn.firstChild.textContent = "Copier l'adresse"; }, 2200);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(D.me.email).then(done, done);
+      else done();
+    });
     var links = $(".links");
     D.me.liens.forEach(function (l) {
       var li = document.createElement("li");
-      li.innerHTML = '<a href="' + esc(l.href) + '" target="_blank" rel="noopener" data-cursor="Ouvrir">' + esc(l.label) + " <span>↗</span></a>";
+      li.innerHTML = '<a class="btn" href="' + esc(l.href) + '" target="_blank" rel="noopener">Voir ' + esc(l.label) + "</a>";
       links.appendChild(li);
     });
 
@@ -138,10 +147,9 @@
     var tags = { hall: "Entrée", ateliers: "15 sites", fabrik: "Entreprise", ambitions: "À venir", archives: "Outils · Parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
     $$("section[id][data-room]").forEach(function (sec) {
       var li = document.createElement("li");
-      li.innerHTML = '<a href="#' + sec.id + '"><span class="num">' + sec.dataset.room + '</span><span class="nom">' + esc(sec.dataset.name) + '</span><span class="tag mono">' + esc(tags[sec.id] || "") + "</span></a>";
+      li.innerHTML = '<a href="#' + sec.id + '"><span class="nom">' + esc(sec.dataset.name) + '</span><span class="tag mono">' + esc(tags[sec.id] || "") + "</span></a>";
       plan.appendChild(li);
       var m = document.createElement("span");
-      m.textContent = sec.dataset.room;
       m.dataset.room = sec.dataset.room;
       mini.appendChild(m);
     });
@@ -187,15 +195,14 @@
     var tick = function () {
       var t = f.format(new Date());
       $(".js-clock").textContent = t;
-      $(".hero-time").textContent = t + " · heure de Lannion";
+      $(".hero-time").textContent = t + " à Lannion";
     };
     tick(); setInterval(tick, 20000);
   }
 
-  function setRoom(num, name) {
-    $(".js-room-num").textContent = num;
+  function setRoom(room, name) {
     $(".js-room-name").textContent = name;
-    $$(".minimap span").forEach(function (s) { s.classList.toggle("is-on", s.dataset.room === num); });
+    $$(".minimap span").forEach(function (s) { s.classList.toggle("is-on", s.dataset.room === room); });
   }
 
   /* ------------------------------------------------------------------
@@ -282,7 +289,7 @@
     window.addEventListener("mousemove", function (e) { cx(e.clientX); cy(e.clientY); }, { passive: true });
     document.addEventListener("mouseover", function (e) {
       var t = e.target.closest("[data-cursor], a, button");
-      if (!t) { cur.classList.remove("is-label"); gsap.to(cur, { width: 14, height: 14, duration: .4, ease: "power3.out" }); return; }
+      if (!t || t.classList.contains("btn")) { cur.classList.remove("is-label"); gsap.to(cur, { width: 14, height: 14, duration: .4, ease: "power3.out" }); return; }
       var text = t.dataset.cursor;
       if (text) {
         lab.textContent = text; cur.classList.add("is-label");
@@ -294,13 +301,6 @@
     });
     document.documentElement.addEventListener("mouseleave", function () { gsap.to(cur, { opacity: 0, duration: .2 }); });
     document.documentElement.addEventListener("mouseenter", function () { gsap.to(cur, { opacity: 1, duration: .2 }); });
-  }
-
-  /* ---------- Bandeaux défilants (accélèrent avec le scroll) ---------- */
-  var marquees = [];
-  function makeMarquee(track, reverse) {
-    var tw = gsap.fromTo(track, { xPercent: reverse ? -50 : 0 }, { xPercent: reverse ? 0 : -50, ease: "none", duration: 36, repeat: -1 });
-    marquees.push(tw);
   }
 
   /* ------------------------------------------------------------------
@@ -321,9 +321,6 @@
       gsap.to(".name .line:nth-child(1)", { xPercent: -7, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
       gsap.to(".name .line:nth-child(2)", { xPercent: 7,  ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
       gsap.to(".portrait", { yPercent: -14, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
-
-      $$(".marquee-track").forEach(function (t, i) { makeMarquee(t, i % 2 === 1); });
-      makeMarquee($(".tape-track"), true);
 
       gsap.set(statementWords, { opacity: .14 });
       gsap.to(statementWords, { opacity: 1, ease: "none", stagger: .12, scrollTrigger: { trigger: statement, start: "top 82%", end: "bottom 50%", scrub: true } });
@@ -401,6 +398,7 @@
     gsap.fromTo(pouch, { rotation: -9 }, { rotation: 9, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 70%", end: "bottom 30%", scrub: 1 } });
     gsap.to(pouch, { y: -14, duration: 2.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
     gsap.fromTo(".js-fabrik-vis svg, .js-fabrik-vis img", { scale: 1.25 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 80%", end: "bottom 30%", scrub: true } });
+    gsap.to(".steps-line", { scaleY: 1, ease: "none", scrollTrigger: { trigger: ".steps", start: "top 65%", end: "bottom 65%", scrub: true } });
     $$(".step").forEach(function (s) {
       ScrollTrigger.create({ trigger: s, start: "top 62%", end: "bottom 62%", onToggle: function (self) { s.classList.toggle("is-active", self.isActive); } });
     });
@@ -446,16 +444,6 @@
     });
   });
   setRoom("I", "Le hall");
-
-  /* Vitesse des bandeaux liée au scroll */
-  if (lenis && marquees.length) {
-    var boost = 0;
-    lenis.on("scroll", function (e) { boost = Math.min(Math.abs(e.velocity) / 7, 6); });
-    gsap.ticker.add(function () {
-      boost *= .93;
-      marquees.forEach(function (m) { m.timeScale(1 + boost); });
-    });
-  }
 
   /* ------------------------------------------------------------------
      INTRODUCTION : le billet, puis le rideau s'ouvre

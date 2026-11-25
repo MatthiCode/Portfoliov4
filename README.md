@@ -1,4 +1,4 @@
-# Musée Matthieu Bayle — portfolio
+# Musée Matthieu Bayle, portfolio
 
 Portfolio en forme de musée : 7 salles, noir / blanc / gris, couleur uniquement dans les photos.
 HTML + CSS + JS, GSAP + ScrollTrigger + Lenis (hébergés dans `vendor/`, aucun build, pas de 3D).

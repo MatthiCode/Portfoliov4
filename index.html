@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Matthieu Bayle — Il construit des choses</title>
+  <title>Matthieu Bayle · Il construit des choses</title>
   <meta name="description" content="Portfolio de Matthieu Bayle, développeur web, designer UI/UX et entrepreneur. Étudiant en BUT MMI à Lannion. Entrez dans le musée.">
   <meta name="theme-color" content="#0a0a0a">
-  <meta property="og:title" content="Matthieu Bayle — Il construit des choses">
+  <meta property="og:title" content="Matthieu Bayle · Il construit des choses">
   <meta property="og:description" content="Un portfolio en forme de musée : développement web, design UI/UX, entrepreneuriat.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
   <!-- ============ Barre fixe ============ -->
   <header class="bar">
     <a href="#hall" class="bar-logo" data-nav>Musée<br>Bayle</a>
-    <p class="bar-room mono" aria-live="polite"><span class="js-room-num">I</span> — <span class="js-room-name">Le hall</span></p>
+    <p class="bar-room mono" aria-live="polite"><span class="js-room-name">Le hall</span></p>
     <button class="bar-menu mono" aria-expanded="false" aria-controls="plan">
       <span class="js-menu-label">Plan</span><i></i><i></i>
     </button>
@@ -43,7 +43,7 @@
 
   <!-- ============ Plan du musée (menu) ============ -->
   <nav class="plan" id="plan" aria-label="Plan du musée" hidden>
-    <p class="plan-title mono">Plan du musée — choisissez une salle</p>
+    <p class="plan-title mono">Plan du musée : choisissez une salle</p>
     <ol class="plan-list"></ol>
     <p class="plan-foot mono">Fermeture à la fin de la page.</p>
   </nav>
@@ -53,12 +53,12 @@
 
   <main>
 
-    <!-- ============ SALLE I — LE HALL ============ -->
+    <!-- Le Hall -->
     <section id="hall" class="room dark hero" data-room="I" data-name="Le hall">
       <div class="hero-top mono">
         <span>Collection permanente</span>
-        <span>Lannion — France</span>
-        <span class="hero-time">—</span>
+        <span>Lannion, France</span>
+        <span class="hero-time"></span>
       </div>
 
       <div class="hero-grid">
@@ -81,17 +81,9 @@
 
       <div class="hero-foot">
         <p class="mono">Développeur web · Designer UI/UX · Entrepreneur</p>
-        <a class="hero-enter mono" href="#ateliers" data-nav data-cursor="Entrer">Entrer dans le musée <span>↓</span></a>
+        <a class="btn" href="#ateliers" data-nav>Entrer dans le musée</a>
       </div>
     </section>
-
-    <!-- Bandeau défilant -->
-    <div class="marquee dark" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Développeur web</span><i>✦</i><span>Designer UI/UX</span><i>✦</i><span>Entrepreneur</span><i>✦</i><span>Freelance</span><i>✦</i>
-        <span>Développeur web</span><i>✦</i><span>Designer UI/UX</span><i>✦</i><span>Entrepreneur</span><i>✦</i><span>Freelance</span><i>✦</i>
-      </div>
-    </div>
 
     <!-- Cartel d'introduction -->
     <section class="room dark intro" aria-labelledby="intro-title" data-room="I" data-name="Le hall">
@@ -107,19 +99,19 @@
       </dl>
     </section>
 
-    <!-- ============ SALLE II — LES ATELIERS ============ -->
+    <!-- Les Ateliers -->
     <section id="ateliers" class="room light" data-room="II" data-name="Les ateliers">
       <div class="gal" id="gallery">
         <div class="gal-track">
           <div class="gal-intro">
-            <p class="eyebrow mono">Salle II · Collection 2024 — 2026</p>
+            <p class="eyebrow mono">Collection 2024 à 2026</p>
             <h2 class="display js-split">Les <em>ateliers</em></h2>
             <p class="lede">Quinze sites créés et publiés pour des clients. Chaque fois, la même méthode&nbsp;: comprendre l'activité, structurer, dessiner, développer, mettre en ligne, ajuster.</p>
-            <p class="mono hint">Faites défiler <span>→</span></p>
+            <p class="mono hint">Faites défiler pour avancer dans la salle</p>
           </div>
           <!-- les pièces sont injectées par main.js -->
           <div class="gal-end">
-            <p class="display small">Le registre<br>complet <em>↓</em></p>
+            <a class="btn" href="#registre" data-nav>Parcourir le registre</a>
           </div>
         </div>
         <div class="gal-floor" aria-hidden="true"></div>
@@ -136,10 +128,10 @@
       </div>
     </section>
 
-    <!-- ============ SALLE III — FABRIK TA PÉPITE ============ -->
+    <!-- Fabrik Ta Pépite -->
     <section id="fabrik" class="room dark fabrik" data-room="III" data-name="Fabrik Ta Pépite">
       <div class="fabrik-head">
-        <p class="eyebrow mono">Salle III · Entrepreneuriat</p>
+        <p class="eyebrow mono">Entrepreneuriat</p>
         <h2 class="display huge js-split">Fabrik <em>Ta</em> Pépite</h2>
       </div>
 
@@ -159,9 +151,9 @@
               </svg>
             </div>
             <p class="cartel fabrik-cartel">
-              <b>Fabrik Ta Pépite</b>, <i>Compote énergisante</i>, 2025–2026<br>
+              <b>Fabrik Ta Pépite</b>, <i>Compote énergisante</i>, 2025 à 2026<br>
               Projet entrepreneurial d'équipe, BUT MMI.<br>
-              <span>Visuel d'exemple — à remplacer par le packaging réel</span>
+              <span>Visuel d'exemple, à remplacer par le packaging réel</span>
             </p>
           </div>
         </div>
@@ -173,31 +165,26 @@
       </div>
     </section>
 
-    <!-- ============ SALLE IV — PROCHAINE EXPOSITION ============ -->
+    <!-- Prochaine Exposition -->
     <section id="ambitions" class="room light ambitions" data-room="IV" data-name="Prochaine exposition">
-      <div class="tape" aria-hidden="true">
-        <div class="tape-track">
-          <span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i><span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i>
-          <span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i><span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i>
-        </div>
-      </div>
       <div class="amb-inner">
-        <p class="eyebrow mono">Salle IV · Œuvres en cours</p>
+        <p class="eyebrow mono">Œuvres en cours</p>
         <h2 class="display huge js-split">Prochaine <em>exposition</em></h2>
         <p class="lede amb-lede">Ce qui n'existe pas encore, c'est ce qui m'intéresse le plus. Voici les chantiers ouverts.</p>
         <div class="amb-list"></div>
+        <a class="btn amb-cta" href="#sortie" data-nav>Proposer un projet</a>
         <p class="amb-quote js-split">Construire des projets <em>durables.</em></p>
       </div>
     </section>
 
-    <!-- ============ SALLE V — ARCHIVES ============ -->
+    <!-- Archives -->
     <section id="archives" class="room dark archives" data-room="V" data-name="Les archives">
       <div class="arch-grid">
         <div class="arch-col">
-          <p class="eyebrow mono">Salle V · Techniques &amp; matériaux</p>
+          <p class="eyebrow mono">Techniques et matériaux</p>
           <h2 class="display js-split">Les <em>outils</em></h2>
           <ul class="skills"></ul>
-          <p class="mono skills-legend">Niveau estimé — ● maîtrise en progression</p>
+          <p class="mono skills-legend">Les points indiquent le niveau estimé</p>
         </div>
         <div class="arch-col">
           <p class="eyebrow mono">Chronologie</p>
@@ -206,7 +193,7 @@
           <div class="formations">
             <p class="mono">Formation</p>
             <ul>
-              <li><b>BUT Métiers du Multimédia et de l'Internet</b><span>IUT de Lannion · Université de Rennes · 2026–2029</span></li>
+              <li><b>BUT Métiers du Multimédia et de l'Internet</b><span>IUT de Lannion · Université de Rennes · 2026 à 2029</span></li>
               <li><b>Baccalauréat</b><span>Spécialités physique-chimie et SVT</span></li>
               <li><b>PSC1</b><span>Prévention et secours civiques · 2024</span></li>
             </ul>
@@ -215,36 +202,31 @@
       </div>
     </section>
 
-    <!-- ============ SALLE VI — HORS ÉCRAN ============ -->
+    <!-- Hors Écran -->
     <section id="hors-ecran" class="room light hors" data-room="VI" data-name="Hors écran">
       <div class="hors-head">
-        <p class="eyebrow mono">Salle VI · Les coulisses</p>
+        <p class="eyebrow mono">Les coulisses</p>
         <h2 class="display huge js-split">Hors <em>écran</em></h2>
         <p class="lede">Un musée ne montre jamais que les œuvres. Voici ce qui se passe quand les écrans sont éteints.</p>
       </div>
       <div class="hors-grid"></div>
-      <div class="marquee light hors-marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Montagne</span><i>✦</i><span>Callisthénie</span><i>✦</i><span>Badminton</span><i>✦</i><span>Curiosité</span><i>✦</i>
-          <span>Montagne</span><i>✦</i><span>Callisthénie</span><i>✦</i><span>Badminton</span><i>✦</i><span>Curiosité</span><i>✦</i>
-        </div>
-      </div>
     </section>
 
-    <!-- ============ SALLE VII — SORTIE ============ -->
+    <!-- Sortie -->
     <section id="sortie" class="room dark sortie" data-room="VII" data-name="La sortie">
-      <p class="eyebrow mono">Salle VII · Livre d'or</p>
+      <p class="eyebrow mono">Livre d'or</p>
       <h2 class="display huge js-split">Un projet&nbsp;? Une idée&nbsp;? Une <em>entreprise</em> à monter&nbsp;?</h2>
-      <a class="mail" href="mailto:contact@exemple.fr" data-cursor="Écrire">
-        <span class="mail-text">contact@exemple.fr</span>
-        <span class="mail-arrow">↗</span>
-      </a>
+      <p class="mail"><span class="mail-text">ei.matthieub@gmail.com</span></p>
+      <div class="cta-row">
+        <a class="btn js-mailto" href="mailto:ei.matthieub@gmail.com">Écrire à Matthieu</a>
+        <button class="btn js-copy" type="button">Copier l'adresse</button>
+      </div>
       <ul class="links"></ul>
 
       <footer class="foot mono">
         <span>© 2026 Matthieu Bayle</span>
-        <span class="foot-time">Lannion — <b class="js-clock">--:--</b></span>
-        <a href="#hall" data-nav>Retour à l'entrée ↑</a>
+        <span class="foot-time">Lannion · <b class="js-clock">--:--</b></span>
+        <a class="btn" href="#hall" data-nav>Retourner à l'entrée</a>
       </footer>
     </section>
 

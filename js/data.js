@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MUSÉE MATTHIEU BAYLE — données
+   MUSÉE MATTHIEU BAYLE : données
    Tout le contenu éditable est ici. Pour remplacer un visuel généré par une
    vraie photo, renseigne `image: "assets/ton-fichier.jpg"` : si le fichier
    existe il est affiché, sinon le paysage de remplacement est généré.
@@ -10,7 +10,7 @@ window.MUSEE = {
   me: {
     nom: "Matthieu Bayle",
     // Remplace par ton vrai email / liens
-    email: "contact@exemple.fr",
+    email: "ei.matthieub@gmail.com",
     liens: [
       { label: "LinkedIn", href: "https://www.linkedin.com/" },
       { label: "GitHub", href: "https://github.com/MatthiCode" },
@@ -21,21 +21,21 @@ window.MUSEE = {
 
   // Les 15 sites : les 6 premiers sont exposés dans la galerie, tous figurent dans le registre.
   oeuvres: [
-    { n: "01", titre: "Site vitrine — Artisan",        annee: "2025", secteur: "Artisanat",       outils: "HTML · CSS · JS · Figma", role: "Design + développement", scene: "dawn",    seed: 11, image: "assets/oeuvres/01.jpg", placeholder: true },
-    { n: "02", titre: "Refonte — Restaurant",          annee: "2025", secteur: "Restauration",    outils: "UI/UX · Intégration",     role: "Design + développement", scene: "glacier", seed: 23, image: "assets/oeuvres/02.jpg", placeholder: true },
-    { n: "03", titre: "Landing page — Coach sportif",  annee: "2025", secteur: "Sport",           outils: "GSAP · Figma",            role: "Design + développement", scene: "dusk",    seed: 35, image: "assets/oeuvres/03.jpg", placeholder: true },
-    { n: "04", titre: "Site — Association locale",     annee: "2025", secteur: "Associatif",      outils: "HTML · CSS · JS",         role: "Développement",          scene: "forest",  seed: 47, image: "assets/oeuvres/04.jpg", placeholder: true },
-    { n: "05", titre: "Vitrine — Photographe",         annee: "2026", secteur: "Création",        outils: "UI/UX · Intégration",     role: "Design + développement", scene: "storm",   seed: 59, image: "assets/oeuvres/05.jpg", placeholder: true },
-    { n: "06", titre: "Site — Commerce de proximité",  annee: "2026", secteur: "Commerce",        outils: "HTML · CSS · JS",         role: "Design + développement", scene: "gold",    seed: 71, image: "assets/oeuvres/06.jpg", placeholder: true },
-    { n: "07", titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { n: "08", titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { n: "09", titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { n: "10", titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { n: "11", titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { n: "12", titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { n: "13", titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { n: "14", titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { n: "15", titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true }
+    { titre: "Site vitrine, artisan",        annee: "2025", secteur: "Artisanat",       outils: "HTML · CSS · JS · Figma", role: "Design + développement", scene: "dawn",    seed: 11, image: "assets/oeuvres/01.jpg", placeholder: true },
+    { titre: "Refonte, restaurant",          annee: "2025", secteur: "Restauration",    outils: "UI/UX · Intégration",     role: "Design + développement", scene: "glacier", seed: 23, image: "assets/oeuvres/02.jpg", placeholder: true },
+    { titre: "Landing page, coach sportif",  annee: "2025", secteur: "Sport",           outils: "GSAP · Figma",            role: "Design + développement", scene: "dusk",    seed: 35, image: "assets/oeuvres/03.jpg", placeholder: true },
+    { titre: "Site, association locale",     annee: "2025", secteur: "Associatif",      outils: "HTML · CSS · JS",         role: "Développement",          scene: "forest",  seed: 47, image: "assets/oeuvres/04.jpg", placeholder: true },
+    { titre: "Vitrine, photographe",         annee: "2026", secteur: "Création",        outils: "UI/UX · Intégration",     role: "Design + développement", scene: "storm",   seed: 59, image: "assets/oeuvres/05.jpg", placeholder: true },
+    { titre: "Site, commerce de proximité",  annee: "2026", secteur: "Commerce",        outils: "HTML · CSS · JS",         role: "Design + développement", scene: "gold",    seed: 71, image: "assets/oeuvres/06.jpg", placeholder: true },
+    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
+    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true }
   ],
 
   fabrik: {
@@ -44,15 +44,15 @@ window.MUSEE = {
     scene: "gold",
     seed: 5,
     etapes: [
-      { t: "Le concept",     d: "Une compote énergisante, pensée comme un vrai produit : un besoin, une cible, une promesse." },
-      { t: "L'identité",     d: "Nom, univers visuel et positionnement construits sous Figma, de la recherche documentaire aux déclinaisons." },
-      { t: "L'équipe",       d: "Un projet mené à plusieurs : répartition des rôles, décisions collectives, défense d'une idée commune." },
-      { t: "Le jury",        d: "Une présentation finale devant un jury. Convaincre, c'est aussi un savoir-faire." }
+      { t: "Le concept", r: "Camp de base",     d: "Une compote énergisante, pensée comme un vrai produit : un besoin, une cible, une promesse." },
+      { t: "L'identité", r: "Première crête",     d: "Nom, univers visuel et positionnement construits sous Figma, de la recherche documentaire aux déclinaisons." },
+      { t: "L'équipe", r: "La cordée",       d: "Un projet mené à plusieurs : répartition des rôles, décisions collectives, défense d'une idée commune." },
+      { t: "Le jury", r: "Le sommet",        d: "Une présentation finale devant un jury. Convaincre, c'est aussi un savoir-faire." }
     ]
   },
 
   ambitions: [
-    { titre: "Une agence",        texte: "Réunir design, développement et stratégie sous un même toit, pour des projets qui durent.", progression: 25, ouverture: "Ouverture prévue — à définir" },
+    { titre: "Une agence",        texte: "Réunir design, développement et stratégie sous un même toit, pour des projets qui durent.", progression: 25, ouverture: "Ouverture prévue, date à définir" },
     { titre: "Des SaaS",          texte: "Transformer des problèmes récurrents en produits utiles, simples et bien finis.",            progression: 15, ouverture: "En cours de réflexion" },
     { titre: "Indépendance",      texte: "Construire une activité qui me laisse la liberté de choisir mes projets et mes équipes.",     progression: 40, ouverture: "Chantier ouvert" }
   ],
@@ -69,9 +69,9 @@ window.MUSEE = {
 
   parcours: [
     { date: "2022",        titre: "Premier portfolio",              texte: "Le début de l'aventure : construire en ligne pour apprendre." },
-    { date: "2024",        titre: "Premiers sites, premiers clients", texte: "Callisthénie, badminton, PSC1 — et les premières missions web." },
+    { date: "2024",        titre: "Premiers sites, premiers clients", texte: "Callisthénie, badminton, PSC1, et les premières missions web." },
     { date: "2025",        titre: "Freelance",                      texte: "Développeur web & designer UI/UX indépendant." },
-    { date: "2026",        titre: "BUT MMI — Lannion",              texte: "IUT de Lannion, Université de Rennes. West Fest, Fabrik Ta Pépite, 15 sites livrés." },
+    { date: "2026",        titre: "BUT MMI, Lannion",              texte: "IUT de Lannion, Université de Rennes. West Fest, Fabrik Ta Pépite, 15 sites livrés." },
     { date: "2029",        titre: "Prochaine salle",                texte: "Diplôme en poche, et l'agence en ligne de mire." }
   ],
 
