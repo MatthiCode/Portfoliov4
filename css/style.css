@@ -98,7 +98,9 @@ body.has-cursor .cursor { display: flex; }
 body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 
 /* ---------- Préchargement : le billet ---------- */
-.preloader { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; }
+.preloader { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; animation: preloader-failsafe .01s linear 10s forwards; }
+/* Sortie de secours : même si le JS échoue, le billet disparaît au bout de 10 s */
+@keyframes preloader-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
 .curtain { position: absolute; left: 0; right: 0; height: 50.2%; background: var(--ink); }
 .curtain--top { top: 0; }
 .curtain--bottom { bottom: 0; }

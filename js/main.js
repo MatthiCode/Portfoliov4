@@ -16,6 +16,14 @@
   };
 
   var body = document.body;
+
+  // Sortie de secours : quoi qu'il arrive, le billet ne bloque jamais la page plus de 9 s.
+  setTimeout(function () {
+    var pre = document.querySelector(".preloader");
+    if (pre) pre.remove();
+    body.classList.remove("is-loading");
+    if (window.__lenis) window.__lenis.start();
+  }, 9000);
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var hasGSAP = typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined";
@@ -183,8 +191,8 @@
   /* ------------------------------------------------------------------
      DÉMARRAGE
      ------------------------------------------------------------------ */
-  render();
-  clock();
+  try { render(); } catch (err) { console.error("render:", err); }
+  try { clock(); } catch (err) { console.error("clock:", err); }
 
   var wordTargets = $$(".js-split").map(function (el) { return { el: el, words: splitWords(el) }; });
   var statement = $(".js-statement");
@@ -209,6 +217,7 @@
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
     lenis.stop();
+    window.__lenis = lenis;
   }
 
   function goTo(target) {

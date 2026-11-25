@@ -129,6 +129,7 @@
    * remplacé par la vraie image si elle existe.
    */
   function mountVisual(el, cfg) {
+    if (!el) return;
     el.classList.add("vis");
     el.innerHTML = sceneSVG(cfg.scene, cfg.seed, { figure: cfg.figure, wide: cfg.wide });
     el.dataset.fallback = "true";
