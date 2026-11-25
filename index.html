@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matthieu Bayle — Il construit des choses</title>
+  <meta name="description" content="Portfolio de Matthieu Bayle, développeur web, designer UI/UX et entrepreneur. Étudiant en BUT MMI à Lannion. Entrez dans le musée.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="Matthieu Bayle — Il construit des choses">
+  <meta property="og:description" content="Un portfolio en forme de musée : développement web, design UI/UX, entrepreneuriat.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#ateliers">Passer l'introduction</a>
+
+  <!-- ============ Billetterie / préchargement ============ -->
+  <div class="preloader" aria-hidden="true">
+    <div class="curtain curtain--top"></div>
+    <div class="curtain curtain--bottom"></div>
+    <div class="ticket">
+      <div class="ticket-head mono"><span>Musée Bayle</span><span>Entrée libre</span></div>
+      <div class="ticket-count"><span class="js-count">000</span><small>%</small></div>
+      <div class="ticket-bar"><span class="js-bar"></span></div>
+      <div class="ticket-foot mono"><span>Billet n° 0001</span><span>Ouverture des portes…</span></div>
+    </div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ Barre fixe ============ -->
+  <header class="bar">
+    <a href="#hall" class="bar-logo" data-nav>Musée<br>Bayle</a>
+    <p class="bar-room mono" aria-live="polite"><span class="js-room-num">I</span> — <span class="js-room-name">Le hall</span></p>
+    <button class="bar-menu mono" aria-expanded="false" aria-controls="plan">
+      <span class="js-menu-label">Plan</span><i></i><i></i>
+    </button>
+  </header>
+
+  <!-- ============ Plan du musée (menu) ============ -->
+  <nav class="plan" id="plan" aria-label="Plan du musée" hidden>
+    <p class="plan-title mono">Plan du musée — choisissez une salle</p>
+    <ol class="plan-list"></ol>
+    <p class="plan-foot mono">Fermeture à la fin de la page.</p>
+  </nav>
+
+  <!-- Mini plan : la salle où vous êtes s'allume -->
+  <aside class="minimap" aria-hidden="true"></aside>
+
+  <main>
+
+    <!-- ============ SALLE I — LE HALL ============ -->
+    <section id="hall" class="room dark hero" data-room="I" data-name="Le hall">
+      <div class="hero-top mono">
+        <span>Collection permanente</span>
+        <span>Lannion — France</span>
+        <span class="hero-time">—</span>
+      </div>
+
+      <div class="hero-grid">
+        <figure class="portrait">
+          <div class="mat"><div class="js-portrait portrait-img"></div></div>
+          <figcaption class="cartel">
+            <b>Matthieu Bayle</b>, <i>Portrait de l'artiste</i>, 2026<br>
+            Technique mixte : HTML, CSS, café et obstination.<br>
+            <span>Collection permanente</span>
+          </figcaption>
+        </figure>
+
+        <h1 class="name" aria-label="Matthieu Bayle">
+          <span class="line"><span class="line-in">Matthieu</span></span>
+          <span class="line"><span class="line-in">Bayle</span></span>
+        </h1>
+
+        <p class="tagline">Il construit <em>des choses.</em></p>
+      </div>
+
+      <div class="hero-foot">
+        <p class="mono">Développeur web · Designer UI/UX · Entrepreneur</p>
+        <a class="hero-enter mono" href="#ateliers" data-nav data-cursor="Entrer">Entrer dans le musée <span>↓</span></a>
+      </div>
+    </section>
+
+    <!-- Bandeau défilant -->
+    <div class="marquee dark" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Développeur web</span><i>✦</i><span>Designer UI/UX</span><i>✦</i><span>Entrepreneur</span><i>✦</i><span>Freelance</span><i>✦</i>
+        <span>Développeur web</span><i>✦</i><span>Designer UI/UX</span><i>✦</i><span>Entrepreneur</span><i>✦</i><span>Freelance</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- Cartel d'introduction -->
+    <section class="room dark intro" aria-labelledby="intro-title" data-room="I" data-name="Le hall">
+      <p class="eyebrow mono" id="intro-title">Texte de salle</p>
+      <p class="statement js-statement">
+        Étudiant en BUT MMI à Lannion, je conçois et développe des sites depuis 2022. J'en ai déjà livré quinze, en freelance. Mais ce que je construis vraiment, c'est la suite&nbsp;: une agence, des produits, des projets qui durent.
+      </p>
+      <dl class="stats">
+        <div><dt class="mono">Sites créés et publiés</dt><dd><span class="js-num" data-to="15">15</span></dd></div>
+        <div><dt class="mono">Années à construire en ligne</dt><dd><span class="js-num" data-to="4">4</span><sup>+</sup></dd></div>
+        <div><dt class="mono">Entreprise imaginée, jury à l'appui</dt><dd><span class="js-num" data-to="1">1</span></dd></div>
+        <div><dt class="mono">Anglais, conversation pro</dt><dd>B<span class="js-num" data-to="2">2</span></dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ SALLE II — LES ATELIERS ============ -->
+    <section id="ateliers" class="room light" data-room="II" data-name="Les ateliers">
+      <div class="gal" id="gallery">
+        <div class="gal-track">
+          <div class="gal-intro">
+            <p class="eyebrow mono">Salle II · Collection 2024 — 2026</p>
+            <h2 class="display js-split">Les <em>ateliers</em></h2>
+            <p class="lede">Quinze sites créés et publiés pour des clients. Chaque fois, la même méthode&nbsp;: comprendre l'activité, structurer, dessiner, développer, mettre en ligne, ajuster.</p>
+            <p class="mono hint">Faites défiler <span>→</span></p>
+          </div>
+          <!-- les pièces sont injectées par main.js -->
+          <div class="gal-end">
+            <p class="display small">Le registre<br>complet <em>↓</em></p>
+          </div>
+        </div>
+        <div class="gal-floor" aria-hidden="true"></div>
+        <div class="gal-progress" aria-hidden="true"><span></span></div>
+      </div>
+
+      <div class="registre" id="registre">
+        <div class="registre-head">
+          <p class="eyebrow mono">Registre de la collection</p>
+          <h3 class="display small js-split">Les quinze <em>œuvres</em></h3>
+        </div>
+        <ol class="registre-list"></ol>
+        <div class="registre-preview" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ SALLE III — FABRIK TA PÉPITE ============ -->
+    <section id="fabrik" class="room dark fabrik" data-room="III" data-name="Fabrik Ta Pépite">
+      <div class="fabrik-head">
+        <p class="eyebrow mono">Salle III · Entrepreneuriat</p>
+        <h2 class="display huge js-split">Fabrik <em>Ta</em> Pépite</h2>
+      </div>
+
+      <div class="fabrik-grid">
+        <div class="fabrik-visual">
+          <div class="fabrik-sticky">
+            <div class="fabrik-art">
+              <div class="js-fabrik-vis"></div>
+              <svg class="pouch" viewBox="0 0 200 320" aria-hidden="true">
+                <path d="M30 40 Q30 20 50 20 L150 20 Q170 20 170 40 L180 290 Q180 305 165 305 L35 305 Q20 305 20 290 Z" fill="#0b0b0b"/>
+                <path d="M30 40 Q30 20 50 20 L150 20 Q170 20 170 40" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 5"/>
+                <circle cx="100" cy="130" r="42" fill="none" stroke="#f1f0ec" stroke-width="2"/>
+                <path d="M100 100 L110 124 L136 128 L116 145 L122 170 L100 156 L78 170 L84 145 L64 128 L90 124 Z" fill="#f1f0ec"/>
+                <text x="100" y="228" text-anchor="middle" fill="#f1f0ec" font-family="Inter Tight, sans-serif" font-size="22" font-weight="700" letter-spacing="2">FABRIK</text>
+                <text x="100" y="254" text-anchor="middle" fill="#f1f0ec" font-family="Inter Tight, sans-serif" font-size="22" font-weight="700" letter-spacing="2">TA PÉPITE</text>
+                <text x="100" y="280" text-anchor="middle" fill="#8a8a8a" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3">COMPOTE ÉNERGISANTE</text>
+              </svg>
+            </div>
+            <p class="cartel fabrik-cartel">
+              <b>Fabrik Ta Pépite</b>, <i>Compote énergisante</i>, 2025–2026<br>
+              Projet entrepreneurial d'équipe, BUT MMI.<br>
+              <span>Visuel d'exemple — à remplacer par le packaging réel</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="fabrik-steps">
+          <p class="lede">Concevoir en équipe une entreprise autour d'une compote énergisante : du produit à son identité, du positionnement à la défense devant un jury. C'est là que j'ai compris que construire, c'est aussi convaincre.</p>
+          <ol class="steps"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SALLE IV — PROCHAINE EXPOSITION ============ -->
+    <section id="ambitions" class="room light ambitions" data-room="IV" data-name="Prochaine exposition">
+      <div class="tape" aria-hidden="true">
+        <div class="tape-track">
+          <span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i><span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i>
+          <span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i><span>Chantier en cours</span><i>/</i><span>Ouverture prochaine</span><i>/</i>
+        </div>
+      </div>
+      <div class="amb-inner">
+        <p class="eyebrow mono">Salle IV · Œuvres en cours</p>
+        <h2 class="display huge js-split">Prochaine <em>exposition</em></h2>
+        <p class="lede amb-lede">Ce qui n'existe pas encore, c'est ce qui m'intéresse le plus. Voici les chantiers ouverts.</p>
+        <div class="amb-list"></div>
+        <p class="amb-quote js-split">Construire des projets <em>durables.</em></p>
+      </div>
+    </section>
+
+    <!-- ============ SALLE V — ARCHIVES ============ -->
+    <section id="archives" class="room dark archives" data-room="V" data-name="Les archives">
+      <div class="arch-grid">
+        <div class="arch-col">
+          <p class="eyebrow mono">Salle V · Techniques &amp; matériaux</p>
+          <h2 class="display js-split">Les <em>outils</em></h2>
+          <ul class="skills"></ul>
+          <p class="mono skills-legend">Niveau estimé — ● maîtrise en progression</p>
+        </div>
+        <div class="arch-col">
+          <p class="eyebrow mono">Chronologie</p>
+          <h2 class="display js-split">Le <em>parcours</em></h2>
+          <ol class="timeline"><span class="timeline-line" aria-hidden="true"></span></ol>
+          <div class="formations">
+            <p class="mono">Formation</p>
+            <ul>
+              <li><b>BUT Métiers du Multimédia et de l'Internet</b><span>IUT de Lannion · Université de Rennes · 2026–2029</span></li>
+              <li><b>Baccalauréat</b><span>Spécialités physique-chimie et SVT</span></li>
+              <li><b>PSC1</b><span>Prévention et secours civiques · 2024</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SALLE VI — HORS ÉCRAN ============ -->
+    <section id="hors-ecran" class="room light hors" data-room="VI" data-name="Hors écran">
+      <div class="hors-head">
+        <p class="eyebrow mono">Salle VI · Les coulisses</p>
+        <h2 class="display huge js-split">Hors <em>écran</em></h2>
+        <p class="lede">Un musée ne montre jamais que les œuvres. Voici ce qui se passe quand les écrans sont éteints.</p>
+      </div>
+      <div class="hors-grid"></div>
+      <div class="marquee light hors-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Montagne</span><i>✦</i><span>Callisthénie</span><i>✦</i><span>Badminton</span><i>✦</i><span>Curiosité</span><i>✦</i>
+          <span>Montagne</span><i>✦</i><span>Callisthénie</span><i>✦</i><span>Badminton</span><i>✦</i><span>Curiosité</span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SALLE VII — SORTIE ============ -->
+    <section id="sortie" class="room dark sortie" data-room="VII" data-name="La sortie">
+      <p class="eyebrow mono">Salle VII · Livre d'or</p>
+      <h2 class="display huge js-split">Un projet&nbsp;? Une idée&nbsp;? Une <em>entreprise</em> à monter&nbsp;?</h2>
+      <a class="mail" href="mailto:contact@exemple.fr" data-cursor="Écrire">
+        <span class="mail-text">contact@exemple.fr</span>
+        <span class="mail-arrow">↗</span>
+      </a>
+      <ul class="links"></ul>
+
+      <footer class="foot mono">
+        <span>© 2026 Matthieu Bayle</span>
+        <span class="foot-time">Lannion — <b class="js-clock">--:--</b></span>
+        <a href="#hall" data-nav>Retour à l'entrée ↑</a>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
