@@ -16,7 +16,7 @@ window.MUSEE = {
       { label: "GitHub", href: "https://github.com/MatthiCode" },
       { label: "Instagram", href: "https://www.instagram.com/" }
     ],
-    portrait: { image: "assets/matthieu.jpg", scene: "dawn", seed: 7 }
+    hero: { image: "assets/hero.jpg", scene: "dawn", seed: 7, wide: true }
   },
 
   // Les 15 sites : les 6 premiers sont exposés dans la galerie, tous figurent dans le registre.
@@ -43,19 +43,8 @@ window.MUSEE = {
     image: "assets/fabrik.jpg",
     scene: "gold",
     seed: 5,
-    etapes: [
-      { t: "Le concept", r: "Camp de base",     d: "Une compote énergisante, pensée comme un vrai produit : un besoin, une cible, une promesse." },
-      { t: "L'identité", r: "Première crête",     d: "Nom, univers visuel et positionnement construits sous Figma, de la recherche documentaire aux déclinaisons." },
-      { t: "L'équipe", r: "La cordée",       d: "Un projet mené à plusieurs : répartition des rôles, décisions collectives, défense d'une idée commune." },
-      { t: "Le jury", r: "Le sommet",        d: "Une présentation finale devant un jury. Convaincre, c'est aussi un savoir-faire." }
-    ]
   },
 
-  ambitions: [
-    { titre: "Une agence",        texte: "Réunir design, développement et stratégie sous un même toit, pour des projets qui durent.", progression: 25, ouverture: "Ouverture prévue, date à définir" },
-    { titre: "Des SaaS",          texte: "Transformer des problèmes récurrents en produits utiles, simples et bien finis.",            progression: 15, ouverture: "En cours de réflexion" },
-    { titre: "Indépendance",      texte: "Construire une activité qui me laisse la liberté de choisir mes projets et mes équipes.",     progression: 40, ouverture: "Chantier ouvert" }
-  ],
 
   competences: [
     { domaine: "Développement web",         outils: "HTML · CSS · JavaScript · Git / GitHub · VS Code", niveau: 4 },

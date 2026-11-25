@@ -61,10 +61,10 @@
     const P = PALETTES[scene] || PALETTES.dawn;
     const rand = rng(seed || 1);
     const noise = makeNoise(rng((seed || 1) * 7919));
-    const W = 800, H = 1000;
+    const W = opts.wide ? 1600 : 800, H = 1000;
     const id = "s" + (++uid);
 
-    const sunX = 180 + rand() * 440;
+    const sunX = W * (0.22 + rand() * 0.55);
     const sunY = H * P.sunY * (0.8 + rand() * 0.3);
     const sunR = 40 + rand() * 40;
 
@@ -130,7 +130,7 @@
    */
   function mountVisual(el, cfg) {
     el.classList.add("vis");
-    el.innerHTML = sceneSVG(cfg.scene, cfg.seed, { figure: cfg.figure });
+    el.innerHTML = sceneSVG(cfg.scene, cfg.seed, { figure: cfg.figure, wide: cfg.wide });
     el.dataset.fallback = "true";
     if (cfg.image) {
       const img = new Image();

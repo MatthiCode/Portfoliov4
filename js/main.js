@@ -25,8 +25,8 @@
      1) RENDU DU CONTENU
      ------------------------------------------------------------------ */
   function render() {
-    // Portrait
-    S.mountVisual($(".js-portrait"), Object.assign({ figure: true, alt: "Portrait de Matthieu Bayle" }, D.me.portrait));
+    // Photo plein fond du hall
+    S.mountVisual($(".js-hero-bg"), Object.assign({ alt: "" }, D.me.hero));
 
     // Galerie : les 6 premières œuvres
     var gal = $(".gal-track");
@@ -68,31 +68,6 @@
 
     // Fabrik Ta Pépite
     S.mountVisual($(".js-fabrik-vis"), { image: D.fabrik.image, scene: D.fabrik.scene, seed: D.fabrik.seed, alt: D.fabrik.nom });
-    var steps = $(".steps");
-    var trailLine = document.createElement("span");
-    trailLine.className = "steps-line";
-    trailLine.setAttribute("aria-hidden", "true");
-    steps.appendChild(trailLine);
-    D.fabrik.etapes.forEach(function (e) {
-      var li = document.createElement("li");
-      li.className = "step";
-      li.innerHTML = '<span class="repere mono">' + esc(e.r) + "</span><h3>" + esc(e.t) + "</h3><p>" + esc(e.d) + "</p>";
-      steps.appendChild(li);
-    });
-
-    // Prochaine exposition
-    var amb = $(".amb-list");
-    D.ambitions.forEach(function (a) {
-      var el = document.createElement("article");
-      el.className = "amb-card";
-      el.innerHTML =
-        "<h3>" + esc(a.titre) + "</h3><p>" + esc(a.texte) + "</p>" +
-        '<div class="meter-wrap"><div class="meter-label mono"><span>Œuvre en cours</span><span class="js-pct" data-to="' + a.progression + '">' + a.progression + ' %</span></div>' +
-        '<div class="meter" style="--p:' + a.progression / 100 + '"><span></span></div>' +
-        '<p class="mono" style="margin-top:10px">' + esc(a.ouverture) + "</p></div>";
-      amb.appendChild(el);
-    });
-
     // Compétences
     var skills = $(".skills");
     D.competences.forEach(function (c) {
@@ -144,7 +119,7 @@
     // Plan du musée + mini plan
     var plan = $(".plan-list");
     var mini = $(".minimap");
-    var tags = { hall: "Entrée", ateliers: "15 sites", fabrik: "Entreprise", ambitions: "À venir", archives: "Outils · Parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
+    var tags = { hall: "Entrée", ateliers: "15 sites", fabrik: "Entreprise", archives: "Outils · Parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
     $$("section[id][data-room]").forEach(function (sec) {
       var li = document.createElement("li");
       li.innerHTML = '<a href="#' + sec.id + '"><span class="nom">' + esc(sec.dataset.name) + '</span><span class="tag mono">' + esc(tags[sec.id] || "") + "</span></a>";
@@ -216,7 +191,6 @@
   var statementWords = splitWords(statement);
   var nameChars = [];
   $$(".name .line-in").forEach(function (el) { nameChars = nameChars.concat(splitChars(el)); });
-  var taglineWords = splitWords($(".tagline"));
 
   // Sans GSAP (ou mouvement réduit) : on affiche tout, sans animation.
   if (!hasGSAP) {
@@ -320,19 +294,10 @@
       /* ----- Salle I : hall ----- */
       gsap.to(".name .line:nth-child(1)", { xPercent: -7, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
       gsap.to(".name .line:nth-child(2)", { xPercent: 7,  ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
-      gsap.to(".portrait", { yPercent: -14, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+      gsap.to(".hero-bg", { yPercent: 4, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
 
       gsap.set(statementWords, { opacity: .14 });
       gsap.to(statementWords, { opacity: 1, ease: "none", stagger: .12, scrollTrigger: { trigger: statement, start: "top 82%", end: "bottom 50%", scrub: true } });
-
-      $$(".js-num").forEach(function (el) {
-        var to = parseFloat(el.dataset.to), o = { v: 0 };
-        el.textContent = "0";
-        ScrollTrigger.create({ trigger: el, start: "top 92%", once: true, onEnter: function () {
-          gsap.to(o, { v: to, duration: 1.8, ease: "power3.out", onUpdate: function () { el.textContent = Math.round(o.v); } });
-        } });
-      });
-      gsap.from(".stats > div", { y: 40, opacity: 0, duration: 1, stagger: .12, ease: "power3.out", scrollTrigger: { trigger: ".stats", start: "top 88%", once: true } });
 
       /* ----- Titres : révélation mot par mot ----- */
       wordTargets.forEach(function (t) {
@@ -398,20 +363,6 @@
     gsap.fromTo(pouch, { rotation: -9 }, { rotation: 9, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 70%", end: "bottom 30%", scrub: 1 } });
     gsap.to(pouch, { y: -14, duration: 2.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
     gsap.fromTo(".js-fabrik-vis svg, .js-fabrik-vis img", { scale: 1.25 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 80%", end: "bottom 30%", scrub: true } });
-    gsap.to(".steps-line", { scaleY: 1, ease: "none", scrollTrigger: { trigger: ".steps", start: "top 65%", end: "bottom 65%", scrub: true } });
-    $$(".step").forEach(function (s) {
-      ScrollTrigger.create({ trigger: s, start: "top 62%", end: "bottom 62%", onToggle: function (self) { s.classList.toggle("is-active", self.isActive); } });
-    });
-
-    /* ----- Salle IV : prochaine exposition ----- */
-    $$(".amb-card").forEach(function (card) {
-      var m = $(".meter span", card);
-      var pct = $(".js-pct", card);
-      var to = parseFloat(pct.dataset.to), o = { v: 0 };
-      gsap.fromTo(m, { scaleX: 0 }, { scaleX: to / 100, duration: 1.8, ease: "power4.out", scrollTrigger: { trigger: card, start: "top 82%", once: true } });
-      gsap.to(o, { v: to, duration: 1.8, ease: "power4.out", onUpdate: function () { pct.textContent = Math.round(o.v) + " %"; }, scrollTrigger: { trigger: card, start: "top 82%", once: true } });
-      gsap.from(card.children, { y: 36, opacity: 0, duration: 1, stagger: .08, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 88%", once: true } });
-    });
 
     /* ----- Salle V : archives ----- */
     $$(".skills li").forEach(function (li) {
@@ -451,10 +402,8 @@
   function heroIn() {
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
     tl.from(nameChars, { yPercent: 118, duration: 1.4, stagger: .045 }, 0)
-      .from(taglineWords, { yPercent: 115, duration: 1.2, stagger: .08 }, .3)
-      .fromTo(".mat", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 1.5, ease: "power4.inOut", clearProps: "clipPath" }, .15)
-      .from(".portrait-img svg, .portrait-img .vis-img", { scale: 1.4, duration: 2 }, .15)
-      .from(".hero-top > *, .hero-foot > *, .portrait .cartel", { opacity: 0, y: 14, duration: 1, stagger: .07 }, .8);
+      .from(".hero-bg svg, .hero-bg .vis-img", { scale: 1.25, duration: 2.4 }, 0)
+      .from(".hero-top > *, .hero-foot > *", { opacity: 0, y: 14, duration: 1, stagger: .07 }, .8);
     return tl;
   }
 

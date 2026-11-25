@@ -9,14 +9,14 @@ python3 -m http.server 8000   # puis http://localhost:8000
 ```
 
 ## Tout modifier au même endroit : `js/data.js`
-- `me` : email, liens (LinkedIn, GitHub, Instagram), portrait
+- `me` : email, liens (LinkedIn, GitHub, Instagram), photo plein fond du hall (`hero`, fichier `assets/hero.jpg`)
 - `oeuvres` : les 15 sites (les 6 premiers sont dans la galerie, tous sont dans le registre)
   - champs : `titre`, `annee`, `secteur`, `outils`, `role`, `image`, `lien` (optionnel, rend la ligne cliquable)
   - supprime `placeholder: true` pour retirer l'étiquette « Fiche d'exemple »
-- `fabrik`, `ambitions`, `competences`, `parcours`, `horsEcran`
+- `fabrik`, `competences`, `parcours`, `horsEcran`
 
 ## Remplacer les visuels de remplacement par tes photos
-Dépose le fichier au chemin indiqué dans `data.js` (ex. `assets/matthieu.jpg`, `assets/oeuvres/01.jpg`,
+Dépose le fichier au chemin indiqué dans `data.js` (ex. `assets/oeuvres/01.jpg`,
 `assets/hors-ecran/montagne.jpg`, `assets/fabrik.jpg`). S'il existe, il remplace automatiquement le paysage généré.
 Formats conseillés : JPG/WebP, 1600 px de large max, < 300 Ko si possible.
 

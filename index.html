@@ -55,6 +55,9 @@
 
     <!-- Le Hall -->
     <section id="hall" class="room dark hero" data-room="I" data-name="Le hall">
+      <div class="hero-bg js-hero-bg" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+
       <div class="hero-top mono">
         <span>Collection permanente</span>
         <span>Lannion, France</span>
@@ -62,21 +65,10 @@
       </div>
 
       <div class="hero-grid">
-        <figure class="portrait">
-          <div class="mat"><div class="js-portrait portrait-img"></div></div>
-          <figcaption class="cartel">
-            <b>Matthieu Bayle</b>, <i>Portrait de l'artiste</i>, 2026<br>
-            Technique mixte : HTML, CSS, café et obstination.<br>
-            <span>Collection permanente</span>
-          </figcaption>
-        </figure>
-
         <h1 class="name" aria-label="Matthieu Bayle">
           <span class="line"><span class="line-in">Matthieu</span></span>
           <span class="line"><span class="line-in">Bayle</span></span>
         </h1>
-
-        <p class="tagline">Il construit <em>des choses.</em></p>
       </div>
 
       <div class="hero-foot">
@@ -91,12 +83,6 @@
       <p class="statement js-statement">
         Étudiant en BUT MMI à Lannion, je conçois et développe des sites depuis 2022. J'en ai déjà livré quinze, en freelance. Mais ce que je construis vraiment, c'est la suite&nbsp;: une agence, des produits, des projets qui durent.
       </p>
-      <dl class="stats">
-        <div><dt class="mono">Sites créés et publiés</dt><dd><span class="js-num" data-to="15">15</span></dd></div>
-        <div><dt class="mono">Années à construire en ligne</dt><dd><span class="js-num" data-to="4">4</span><sup>+</sup></dd></div>
-        <div><dt class="mono">Entreprise imaginée, jury à l'appui</dt><dd><span class="js-num" data-to="1">1</span></dd></div>
-        <div><dt class="mono">Anglais, conversation pro</dt><dd>B<span class="js-num" data-to="2">2</span></dd></div>
-      </dl>
     </section>
 
     <!-- Les Ateliers -->
@@ -108,13 +94,16 @@
             <h2 class="display js-split">Les <em>ateliers</em></h2>
             <p class="lede">Quinze sites créés et publiés pour des clients. Chaque fois, la même méthode&nbsp;: comprendre l'activité, structurer, dessiner, développer, mettre en ligne, ajuster.</p>
             <p class="mono hint">Faites défiler pour avancer dans la salle</p>
+            <a class="btn gal-skip-m" href="#fabrik" data-nav>Passer les ateliers</a>
           </div>
           <!-- les pièces sont injectées par main.js -->
           <div class="gal-end">
             <a class="btn" href="#registre" data-nav>Parcourir le registre</a>
+            <a class="btn" href="#fabrik" data-nav>Découvrir le projet</a>
           </div>
         </div>
         <div class="gal-floor" aria-hidden="true"></div>
+        <a class="btn gal-skip" href="#fabrik" data-nav>Passer les ateliers</a>
         <div class="gal-progress" aria-hidden="true"><span></span></div>
       </div>
 
@@ -125,6 +114,7 @@
         </div>
         <ol class="registre-list"></ol>
         <div class="registre-preview" aria-hidden="true"></div>
+        <div class="registre-cta"><a class="btn" href="#fabrik" data-nav>Découvrir le projet</a></div>
       </div>
     </section>
 
@@ -160,20 +150,12 @@
 
         <div class="fabrik-steps">
           <p class="lede">Concevoir en équipe une entreprise autour d'une compote énergisante : du produit à son identité, du positionnement à la défense devant un jury. C'est là que j'ai compris que construire, c'est aussi convaincre.</p>
-          <ol class="steps"></ol>
+          <dl class="faits">
+            <div><dt class="mono">Cadre</dt><dd>Projet entrepreneurial d'équipe, BUT MMI</dd></div>
+            <div><dt class="mono">Outils</dt><dd>Figma, recherche documentaire, outils collaboratifs</dd></div>
+            <div><dt class="mono">Résultat</dt><dd>Un concept de produit et une présentation finale devant un jury</dd></div>
+          </dl>
         </div>
-      </div>
-    </section>
-
-    <!-- Prochaine Exposition -->
-    <section id="ambitions" class="room light ambitions" data-room="IV" data-name="Prochaine exposition">
-      <div class="amb-inner">
-        <p class="eyebrow mono">Œuvres en cours</p>
-        <h2 class="display huge js-split">Prochaine <em>exposition</em></h2>
-        <p class="lede amb-lede">Ce qui n'existe pas encore, c'est ce qui m'intéresse le plus. Voici les chantiers ouverts.</p>
-        <div class="amb-list"></div>
-        <a class="btn amb-cta" href="#sortie" data-nav>Proposer un projet</a>
-        <p class="amb-quote js-split">Construire des projets <em>durables.</em></p>
       </div>
     </section>
 
