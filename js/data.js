@@ -19,30 +19,23 @@ window.MUSEE = {
     hero: { image: "assets/hero.jpg", scene: "dawn", seed: 7, wide: true }
   },
 
-  // Les 15 sites : les 6 premiers sont exposés dans la galerie, tous figurent dans le registre.
+  // Projets exposés. `vedette: true` = dans la galerie ; tous sont dans le registre.
+  // `ratio` : proportion du cadre. `lien` : page du projet (le dépôt GitHub par défaut,
+  // remplace par l'adresse du site en ligne si tu en as une).
   oeuvres: [
-    { titre: "Site vitrine, artisan",        annee: "2025", secteur: "Artisanat",       outils: "HTML · CSS · JS · Figma", role: "Design + développement", scene: "dawn",    seed: 11, image: "assets/oeuvres/01.jpg", placeholder: true },
-    { titre: "Refonte, restaurant",          annee: "2025", secteur: "Restauration",    outils: "UI/UX · Intégration",     role: "Design + développement", scene: "glacier", seed: 23, image: "assets/oeuvres/02.jpg", placeholder: true },
-    { titre: "Landing page, coach sportif",  annee: "2025", secteur: "Sport",           outils: "GSAP · Figma",            role: "Design + développement", scene: "dusk",    seed: 35, image: "assets/oeuvres/03.jpg", placeholder: true },
-    { titre: "Site, association locale",     annee: "2025", secteur: "Associatif",      outils: "HTML · CSS · JS",         role: "Développement",          scene: "forest",  seed: 47, image: "assets/oeuvres/04.jpg", placeholder: true },
-    { titre: "Vitrine, photographe",         annee: "2026", secteur: "Création",        outils: "UI/UX · Intégration",     role: "Design + développement", scene: "storm",   seed: 59, image: "assets/oeuvres/05.jpg", placeholder: true },
-    { titre: "Site, commerce de proximité",  annee: "2026", secteur: "Commerce",        outils: "HTML · CSS · JS",         role: "Design + développement", scene: "gold",    seed: 71, image: "assets/oeuvres/06.jpg", placeholder: true },
-    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2025", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true },
-    { titre: "Projet client",  annee: "2026", secteur: "À renseigner", placeholder: true }
+    { titre: "Armor Calistenics, site du collectif", annee: "2026", secteur: "Sport, collectif", outils: "HTML · CSS · JS", role: "Cofondateur, design et développement", image: "assets/oeuvres/armor-site.jpg", ratio: "16 / 9", scene: "storm", seed: 31, lien: "https://github.com/MatthiCode/ArmorCallisthenics", vedette: true },
+    { titre: "Armor Calistenics, identité visuelle", secteur: "Identité visuelle", outils: "Logo · Typographies · Palette", role: "Cofondateur, direction artistique", image: "assets/oeuvres/armor-identite.jpg", ratio: "16 / 9", scene: "dusk", seed: 17, vedette: true },
+    { titre: "Corde de mains", annee: "2026", secteur: "Expérience interactive", outils: "JavaScript · MediaPipe · Canvas · Web Audio", role: "Conception et développement", image: "assets/oeuvres/corde-de-mains.jpg", ratio: "16 / 9", scene: "glacier", seed: 43, lien: "https://github.com/MatthiCode/Effetinsta", vedette: true },
+    { titre: "Le Petit Prince, affiche", secteur: "Création graphique", role: "Design graphique", image: "assets/oeuvres/petit-prince.jpg", ratio: "2 / 3", scene: "dusk", seed: 53, vedette: true },
+    { titre: "Squeezie, illustration", secteur: "Création graphique", outils: "Illustration vectorielle", role: "Design graphique", image: "assets/oeuvres/squeezie.jpg", ratio: "16 / 9", scene: "gold", seed: 61, vedette: true },
+    { titre: "Portfolio v3", annee: "2026", secteur: "Portfolio", outils: "GSAP · Lenis · Three.js", role: "Design et développement", scene: "forest", seed: 71, lien: "https://github.com/MatthiCode/matthv3" }
   ],
 
   fabrik: {
-    nom: "Fabrik Ta Pépite",
-    image: "assets/fabrik.jpg",
-    scene: "gold",
-    seed: 5,
+    nom: "Freiz",
+    image: "assets/freiz.jpg",
+    scene: "forest",
+    seed: 5
   },
 
 

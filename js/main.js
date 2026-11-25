@@ -40,18 +40,27 @@
     var gal = $(".gal-track");
     var end = $(".gal-end");
     var ratios = ["4 / 5", "1 / 1", "3 / 4", "5 / 4", "4 / 5", "1 / 1"];
-    D.oeuvres.slice(0, 6).forEach(function (o, i) {
+    var vedettes = D.oeuvres.filter(function (o) { return o.vedette; });
+    if (!vedettes.length) vedettes = D.oeuvres.slice(0, 6);
+    vedettes.forEach(function (o, i) {
       var fig = document.createElement("figure");
       fig.className = "piece";
-      fig.style.setProperty("--ar", ratios[i % ratios.length]);
+      var ratio = o.ratio || ratios[i % ratios.length];
+      var rp = ratio.split("/");
+      var wide = parseFloat(rp[0]) / parseFloat(rp[1]) > 1.2;
+      fig.style.setProperty("--ar", ratio);
+      fig.style.setProperty("--h", wide ? "38vh" : "56vh");
+      var lines = [];
+      var head = [o.annee, o.secteur].filter(Boolean).join(" · ");
+      if (head) lines.push(esc(head));
+      if (o.outils) lines.push("Technique : " + esc(o.outils));
+      if (o.role) lines.push("Rôle : " + esc(o.role));
       fig.innerHTML =
         '<div class="frame"><div class="vis"></div></div>' +
-        '<figcaption class="cartel"><b>' + esc(o.titre) + "</b>" +
-        esc(o.annee) + " · " + esc(o.secteur) + "<br>" +
-        "Technique : " + esc(o.outils || "à renseigner") + "<br>" +
-        "Rôle : " + esc(o.role || "à renseigner") +
+        '<figcaption class="cartel"><b>' + esc(o.titre) + "</b>" + lines.join("<br>") +
         (o.placeholder ? '<br><span class="ph-tag">Fiche d\'exemple</span>' : "") +
-        "</figcaption>";
+        "</figcaption>" +
+        (o.lien ? '<a class="btn piece-link" href="' + esc(o.lien) + '" target="_blank" rel="noopener">Voir le projet</a>' : "");
       gal.insertBefore(fig, end);
       S.mountVisual($(".vis", fig), { image: o.image, scene: o.scene || SCENE_CYCLE[i % 6], seed: o.seed || (i + 1) * 13, alt: o.titre });
     });
@@ -64,7 +73,7 @@
       li.className = "row" + (o.placeholder ? " is-ph" : "");
       var inner =
         '<span class="t">' + esc(o.titre) + '</span>' +
-        '<span class="s">' + esc(o.secteur) + '</span><span class="y">' + esc(o.annee) + "</span>" +
+        '<span class="s">' + esc(o.secteur || "") + '</span><span class="y">' + esc(o.annee || "") + "</span>" +
         '<span class="go" aria-hidden="true">' + (o.lien ? "Voir" : "") + "</span>";
       li.innerHTML = o.lien ? '<a href="' + esc(o.lien) + '" target="_blank" rel="noopener" style="display:contents">' + inner + "</a>" : inner;
       list.appendChild(li);
@@ -127,7 +136,7 @@
     // Plan du musée + mini plan
     var plan = $(".plan-list");
     var mini = $(".minimap");
-    var tags = { hall: "Entrée", ateliers: "15 sites", fabrik: "Entreprise", archives: "Outils · Parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
+    var tags = { hall: "Entrée", ateliers: "Projets", fabrik: "Entreprise", archives: "Outils · Parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
     $$("section[id][data-room]").forEach(function (sec) {
       var li = document.createElement("li");
       li.innerHTML = '<a href="#' + sec.id + '"><span class="nom">' + esc(sec.dataset.name) + '</span><span class="tag mono">' + esc(tags[sec.id] || "") + "</span></a>";
@@ -367,10 +376,6 @@
   var mm2 = gsap.matchMedia();
   mm2.add("(prefers-reduced-motion: no-preference)", function () {
     /* ----- Salle III : Fabrik Ta Pépite ----- */
-    var pouch = $(".pouch");
-    gsap.set(pouch, { xPercent: -50, yPercent: -50 });
-    gsap.fromTo(pouch, { rotation: -9 }, { rotation: 9, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 70%", end: "bottom 30%", scrub: 1 } });
-    gsap.to(pouch, { y: -14, duration: 2.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
     gsap.fromTo(".js-fabrik-vis svg, .js-fabrik-vis img", { scale: 1.25 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 80%", end: "bottom 30%", scrub: true } });
 
     /* ----- Salle V : archives ----- */

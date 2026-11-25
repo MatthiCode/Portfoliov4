@@ -191,7 +191,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .piece::before { content: ""; position: absolute; left: -35%; right: -35%; top: -34vh; height: 62vh; background: radial-gradient(ellipse 50% 100% at 50% 0, rgba(255, 255, 255, .6), transparent 70%); pointer-events: none; z-index: -1; }
 .piece:nth-of-type(odd)  { margin-top: 6vh; }
 .piece:nth-of-type(even) { margin-top: -4vh; }
-.piece .frame { height: 56vh; aspect-ratio: var(--ar, 4 / 5); background: #fff; padding: clamp(8px, .9vw, 14px); box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 0 36px 60px -28px rgba(0, 0, 0, .45), 0 10px 20px -12px rgba(0, 0, 0, .3); position: relative; }
+.piece .frame { height: var(--h, 56vh); aspect-ratio: var(--ar, 4 / 5); background: #fff; padding: clamp(8px, .9vw, 14px); box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 0 36px 60px -28px rgba(0, 0, 0, .45), 0 10px 20px -12px rgba(0, 0, 0, .3); position: relative; }
 .piece .vis { width: 100%; height: 100%; }
 .piece .cartel { max-width: 26em; }
 .piece .cartel b { display: block; font-size: 13px; margin-bottom: .2em; }
@@ -228,9 +228,8 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .fabrik-head { margin-bottom: 10vh; }
 .fabrik-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 6vw; align-items: start; }
 .fabrik-sticky { position: sticky; top: 12vh; }
-.fabrik-art { position: relative; aspect-ratio: 4 / 5; max-height: 72vh; width: 100%; overflow: hidden; }
+.fabrik-art { position: relative; aspect-ratio: 16 / 9; width: 100%; overflow: hidden; }
 .fabrik-art .js-fabrik-vis { position: absolute; inset: 0; }
-.pouch { position: absolute; left: 50%; top: 50%; width: 36%; filter: drop-shadow(0 34px 28px rgba(0, 0, 0, .55)); }
 .fabrik-cartel { margin-top: 14px; }
 .fabrik-steps .lede { margin-bottom: 12vh; color: var(--fg); font-size: clamp(1.15rem, 1.8vw, 1.7rem); line-height: 1.35; letter-spacing: -.02em; }
 
@@ -359,7 +358,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .registre-cta { margin-top: 8vh; }
 
 /* ---------- Fabrik : faits ---------- */
-.fabrik-grid { align-items: center; }
+.fabrik-grid { align-items: center; grid-template-columns: 7fr 5fr; }
 .fabrik-sticky { position: static; }
 .faits { margin-top: 6vh; border-top: 1px solid var(--line); }
 .faits > div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
@@ -372,3 +371,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
   .gal-skip-m { display: inline-flex; margin-top: 2rem; }
   .faits > div { grid-template-columns: 1fr; gap: .2rem; }
 }
+
+.piece .piece-link { margin-top: .9rem; align-self: flex-start; }
+.registre-note { margin-top: 2rem; color: var(--muted); }
+.fabrik-claim { font-weight: 600; letter-spacing: -.045em; line-height: .95; font-size: clamp(1.8rem, 3.2vw, 3.2rem); margin-bottom: 1.4rem; }
