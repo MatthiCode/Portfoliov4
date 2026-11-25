@@ -9,7 +9,7 @@
   --wall: #dcdcda;
   --pad: clamp(18px, 2.2vw, 32px);
   --f-sans: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --accent: #ff5a1f;
+  --accent: #7aa5c8;
   --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
