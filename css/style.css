@@ -386,3 +386,4 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .plan-list li, .plan-list li:last-child,
 .skills li, .skills li:last-child,
 .formations, .formations li { border: 0; }
+.hero-bg .vis-img { object-position: 50% 72%; }
