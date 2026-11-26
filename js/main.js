@@ -203,7 +203,7 @@
   }
 
   function setRoom(room, name) {
-    $(".js-room-name").textContent = name;
+    var rn = $(".js-room-name"); if (rn) rn.textContent = name;
     $$(".minimap span").forEach(function (s) { s.classList.toggle("is-on", s.dataset.room === room); });
   }
 
