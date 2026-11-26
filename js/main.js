@@ -51,7 +51,7 @@
       fig.style.setProperty("--ar", ratio);
       fig.style.setProperty("--h", wide ? "38vh" : "56vh");
       var lines = [];
-      var head = [o.annee, o.secteur].filter(Boolean).join(" · ");
+      var head = [o.annee, o.secteur].filter(Boolean).join(", ");
       if (head) lines.push(esc(head));
       if (o.outils) lines.push("Technique : " + esc(o.outils));
       if (o.role) lines.push("Rôle : " + esc(o.role));
@@ -136,7 +136,7 @@
     // Plan du musée + mini plan
     var plan = $(".plan-list");
     var mini = $(".minimap");
-    var tags = { hall: "Entrée", ateliers: "Projets", fabrik: "Entreprise", archives: "Outils · Parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
+    var tags = { hall: "Entrée", ateliers: "Projets", fabrik: "Entreprise", archives: "Outils, parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
     $$("section[id][data-room]").forEach(function (sec) {
       var li = document.createElement("li");
       li.innerHTML = '<a href="#' + sec.id + '"><span class="nom">' + esc(sec.dataset.name) + '</span><span class="tag mono">' + esc(tags[sec.id] || "") + "</span></a>";
@@ -187,7 +187,7 @@
     var tick = function () {
       var t = f.format(new Date());
       $(".js-clock").textContent = t;
-      $(".hero-time").textContent = t + " à Lannion";
+      var _ht=$(".hero-time"); if(_ht) _ht.textContent = t + " à Lannion";
     };
     tick(); setInterval(tick, 20000);
   }
@@ -417,7 +417,7 @@
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
     tl.from(nameChars, { yPercent: 118, duration: 1.4, stagger: .045 }, 0)
       .from(".hero-bg svg, .hero-bg .vis-img", { scale: 1.25, duration: 2.4 }, 0)
-      .from(".hero-top > *, .hero-foot > *", { opacity: 0, y: 14, duration: 1, stagger: .07 }, .8);
+      .from(".hero-foot > *", { opacity: 0, y: 14, duration: 1, stagger: .07 }, .8);
     return tl;
   }
 
