@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Matthieu Bayle, Il construit des choses</title>
+  <title>Matthieu Bayle, Je construis des choses</title>
   <meta name="description" content="Portfolio de Matthieu Bayle, développeur web, designer UI/UX et entrepreneur. Étudiant en BUT MMI à Lannion. Entrez dans le musée.">
   <meta name="theme-color" content="#0a0a0a">
-  <meta property="og:title" content="Matthieu Bayle, Il construit des choses">
+  <meta property="og:title" content="Matthieu Bayle, Je construis des choses">
   <meta property="og:description" content="Un portfolio en forme de musée : développement web, design UI/UX, entrepreneuriat.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261126j">
+  <link rel="stylesheet" href="css/style.css?v=20261126k">
 </head>
 <body>
   <a class="skip" href="#ateliers">Passer l'introduction</a>
@@ -35,12 +35,12 @@
   <!-- ============ Barre fixe ============ -->
   <header class="bar">
     <button class="bar-menu mono" aria-expanded="false" aria-controls="plan">
-      <span class="js-menu-label">Plan</span><i></i><i></i>
+      <span class="js-menu-label">Menu</span><i></i><i></i>
     </button>
   </header>
 
   <!-- ============ Plan du musée (menu) ============ -->
-  <nav class="plan" id="plan" aria-label="Plan du musée" hidden>
+  <nav class="plan" id="plan" aria-label="Menu" hidden>
     <ol class="plan-list"></ol>
   </nav>
 
@@ -62,14 +62,14 @@
       </div>
 
       <div class="hero-foot">
-        <a class="btn" href="#ateliers" data-nav>Entrer dans le musée</a>
+        <a class="btn" href="#ateliers" data-nav>Découvrir mes projets</a>
       </div>
     </section>
 
     <!-- Cartel d'introduction -->
     <section class="room dark intro" aria-labelledby="intro-title" data-room="I" data-name="Accueil">
       <p class="statement js-statement">
-        Étudiant en BUT MMI à Lannion, je conçois et développe des sites depuis 2022. J'en ai déjà livré quinze, en freelance. Mais ce que je construis vraiment, c'est la suite&nbsp;: une agence, des produits, des projets qui durent.
+        Salut, moi c'est Matthieu. Je suis passionné d'entrepreneuriat et d'optimisation grâce à l'IA. C'est pour ça qu'aujourd'hui je construis des sites pour aider des entrepreneurs à se mettre en valeur et à être visibles sur internet. Si ça vous intéresse, contactez-moi&nbsp;!
       </p>
     </section>
 
@@ -78,19 +78,17 @@
       <div class="gal" id="gallery">
         <div class="gal-track">
           <div class="gal-intro">
-            <h2 class="display js-split">Les ateliers</h2>
-            <p class="lede">Sites, expériences interactives et créations graphiques : des projets de collectif, d'expérimentation et de commande. Chaque fois, la même méthode : comprendre, structurer, dessiner, développer, publier, ajuster.</p>
-            <p class="mono hint">Faites défiler pour avancer dans la salle</p>
-            <a class="btn gal-skip-m" href="#fabrik" data-nav>Passer les ateliers</a>
+            <h2 class="display js-split">Les projets</h2>
+            <a class="btn gal-skip-m" href="#fabrik" data-nav>Passer les projets</a>
           </div>
           <!-- les pièces sont injectées par main.js -->
           <div class="gal-end">
-            <a class="btn" href="#registre" data-nav>Parcourir le registre</a>
+            <a class="btn" href="#registre" data-nav>Voir toute la collection</a>
             <a class="btn" href="#fabrik" data-nav>Découvrir le projet</a>
           </div>
         </div>
         <div class="gal-floor" aria-hidden="true"></div>
-        <a class="btn gal-skip" href="#fabrik" data-nav>Passer les ateliers</a>
+        <a class="btn gal-skip" href="#fabrik" data-nav>Passer les projets</a>
         <div class="gal-progress" aria-hidden="true"><span></span></div>
       </div>
 
@@ -100,7 +98,7 @@
         </div>
         <ol class="registre-list"></ol>
         <div class="registre-preview" aria-hidden="true"></div>
-        <p class="registre-note mono">En plus : 15 sites clients livrés en freelance depuis 2024.</p>
+        <p class="registre-note mono">J'ai aussi livré 15 sites clients en freelance depuis 2024.</p>
         <div class="registre-cta"><a class="btn" href="#fabrik" data-nav>Découvrir le projet</a></div>
       </div>
     </section>
@@ -144,11 +142,10 @@
           <h2 class="display js-split">Les outils</h2>
           <ul class="tools" aria-label="Outils utilisés"></ul>
           <ul class="skills"></ul>
-          <p class="mono skills-legend">Les points indiquent le niveau estimé</p>
         </div>
         <div class="arch-col">
           <h2 class="display js-split">Le parcours</h2>
-          <ol class="timeline"><span class="timeline-line" aria-hidden="true"></span></ol>
+          <ol class="timeline"></ol>
           <div class="formations">
             <p class="mono">Formation</p>
             <ul>
@@ -165,7 +162,7 @@
       <h2 class="display huge js-split">Un projet&nbsp;? Une idée&nbsp;? Une entreprise à monter&nbsp;?</h2>
       <p class="mail"><span class="mail-text">ei.matthieub@gmail.com</span></p>
       <div class="cta-row">
-        <a class="btn js-mailto" href="mailto:ei.matthieub@gmail.com">Écrire à Matthieu</a>
+        <a class="btn js-mailto" href="mailto:ei.matthieub@gmail.com">M'écrire</a>
         <button class="btn js-copy" type="button">Copier l'adresse</button>
       </div>
       <ul class="links"></ul>
@@ -179,11 +176,11 @@
 
   </main>
 
-  <script src="vendor/gsap.min.js?v=20261126j"></script>
-  <script src="vendor/ScrollTrigger.min.js?v=20261126j"></script>
-  <script src="vendor/lenis.min.js?v=20261126j"></script>
-  <script src="js/data.js?v=20261126j"></script>
-  <script src="js/scenes.js?v=20261126j"></script>
-  <script src="js/main.js?v=20261126j"></script>
+  <script src="vendor/gsap.min.js?v=20261126k"></script>
+  <script src="vendor/ScrollTrigger.min.js?v=20261126k"></script>
+  <script src="vendor/lenis.min.js?v=20261126k"></script>
+  <script src="js/data.js?v=20261126k"></script>
+  <script src="js/scenes.js?v=20261126k"></script>
+  <script src="js/main.js?v=20261126k"></script>
 </body>
 </html>

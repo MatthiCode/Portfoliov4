@@ -56,7 +56,7 @@ window.MUSEE = {
     { date: "2024",        titre: "Premiers sites, premiers clients", texte: "Callisthénie, badminton, PSC1, et les premières missions web." },
     { date: "2025",        titre: "Freelance",                      texte: "Développeur web & designer UI/UX indépendant." },
     { date: "2026",        titre: "BUT MMI, Lannion",              texte: "IUT de Lannion, Université de Rennes. West Fest, Fabrik Ta Pépite, 15 sites livrés." },
-    { date: "2029",        titre: "Prochaine salle",                texte: "Diplôme en poche, et l'agence en ligne de mire." }
+    { date: "2029",        titre: "La suite",                texte: "Diplôme en poche, et l'agence en ligne de mire." }
   ],
 
 };

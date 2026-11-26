@@ -97,9 +97,7 @@
     var skills = $(".skills");
     D.competences.forEach(function (c) {
       var li = document.createElement("li");
-      var dots = "";
-      for (var k = 1; k <= 5; k++) dots += '<i class="' + (k <= c.niveau ? "on" : "") + '"></i>';
-      li.innerHTML = '<span class="d">' + esc(c.domaine) + '</span><span class="dots" aria-label="Niveau ' + c.niveau + ' sur 5">' + dots + '</span><span class="o">' + esc(c.outils) + "</span>";
+      li.innerHTML = '<span class="d">' + esc(c.domaine) + '</span><span class="o">' + esc(c.outils) + "</span>";
       skills.appendChild(li);
     });
 
@@ -251,7 +249,7 @@
     if (!menuOpen) return;
     menuOpen = false;
     menuBtn.setAttribute("aria-expanded", "false");
-    $(".js-menu-label").textContent = "Plan";
+    $(".js-menu-label").textContent = "Menu";
     gsap.to(plan, { clipPath: "inset(100% 0 0 0)", duration: reduceMotion ? 0 : .8, ease: "power4.inOut", onComplete: function () { plan.hidden = true; if (lenis) lenis.start(); } });
   }
   menuBtn.addEventListener("click", function () { menuOpen ? closeMenu() : openMenu(); });
@@ -406,11 +404,6 @@
     /* ----- Salle III : Fabrik Ta Pépite ----- */
     gsap.fromTo(".js-fabrik-vis svg, .js-fabrik-vis img", { scale: 1.25 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 80%", end: "bottom 30%", scrub: true } });
 
-    /* ----- Salle V : archives ----- */
-    $$(".skills li").forEach(function (li) {
-      gsap.from($$(".dots i", li), { scale: 0, duration: .55, stagger: .06, ease: "back.out(3)", scrollTrigger: { trigger: li, start: "top 92%", once: true } });
-    });
-    gsap.to(".timeline-line", { scaleY: 1, ease: "none", scrollTrigger: { trigger: ".timeline", start: "top 65%", end: "bottom 65%", scrub: true } });
     $$(".tl").forEach(function (t) {
       gsap.from(t, { y: 36, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: t, start: "top 88%", once: true } });
     });
