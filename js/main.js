@@ -354,16 +354,17 @@
         var regList = $(".registre-list");
         regList.addEventListener("mousemove", onMove);
         rows.forEach(function (row, i) {
-          row.addEventListener("mouseenter", function () {
+          var txt = $(".t", row);
+          txt.addEventListener("mouseenter", function () {
             prev.style.setProperty("--pr", (D.oeuvres[i] && D.oeuvres[i].ratio) || "4 / 5");
             layers.forEach(function (l, j) { l.classList.toggle("is-on", j === i); });
             gsap.to(prev, { opacity: 1, scale: 1, rotation: 0, duration: .5, ease: "power3.out", overwrite: "auto" });
           });
+          txt.addEventListener("mouseleave", function () { hide(); });
         });
         var hide = function () {
           gsap.to(prev, { opacity: 0, scale: .92, rotation: -2, duration: .35, ease: "power3.in", overwrite: "auto" });
         };
-        regList.addEventListener("mouseleave", hide);
         return function () { regList.removeEventListener("mousemove", onMove); };
       }
     }
@@ -392,7 +393,7 @@
       el.addEventListener("pointerdown", function (e) { tShow(idx, e); });
       ["pointerup", "pointercancel", "pointerleave"].forEach(function (n) { el.addEventListener(n, tHide); });
     };
-    $$(".row").forEach(function (row, i) { bind(row, i); });
+    $$(".row").forEach(function (row, i) { bind($(".t", row), i); });
   }
 
   /* Le reste des animations vit dans un second matchMedia, créé APRÈS la galerie
