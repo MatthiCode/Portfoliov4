@@ -399,21 +399,24 @@
     var tLayers = $$(".vis", tPrev);
     var tShow = function (idx, e) {
       tLayers.forEach(function (l, j) { l.classList.toggle("is-on", j === idx); });
-      var x = Math.min(Math.max(e.clientX - tPrev.offsetWidth / 2, 8), window.innerWidth - tPrev.offsetWidth - 8);
-      var y = Math.min(Math.max(e.clientY - tPrev.offsetHeight - 24, 8), window.innerHeight - tPrev.offsetHeight - 8);
+      var touch = e.pointerType === "touch";
+      var w = tPrev.offsetWidth, h = tPrev.offsetHeight;
+      var x = e.clientX - w / 2;
+      var y = touch ? e.clientY - h - 24 : e.clientY - h / 2;
+      x = Math.min(Math.max(x, 8), window.innerWidth - w - 8);
+      y = Math.min(Math.max(y, 8), window.innerHeight - h - 8);
       gsap.set(tPrev, { x: x, y: y });
       gsap.to(tPrev, { opacity: 1, scale: 1, rotation: 0, duration: .35, ease: "power3.out", overwrite: "auto" });
     };
     var tHide = function () { gsap.to(tPrev, { opacity: 0, scale: .92, duration: .3, overwrite: "auto" }); };
-    $$(".row").forEach(function (row, i) {
-      row.addEventListener("pointerdown", function (e) { tShow(i, e); });
-      ["pointerup", "pointercancel", "pointerleave"].forEach(function (n) { row.addEventListener(n, tHide); });
-    });
-    $$(".piece").forEach(function (p) {
-      var idx = +p.dataset.idx;
-      p.addEventListener("pointerdown", function (e) { tShow(idx, e); });
-      ["pointerup", "pointercancel", "pointerleave"].forEach(function (n) { p.addEventListener(n, tHide); });
-    });
+    var bind = function (el, idx) {
+      el.addEventListener("pointerenter", function (e) { if (e.pointerType !== "touch") tShow(idx, e); });
+      el.addEventListener("pointermove", function (e) { if (e.pointerType !== "touch") tShow(idx, e); });
+      el.addEventListener("pointerdown", function (e) { tShow(idx, e); });
+      ["pointerup", "pointercancel", "pointerleave"].forEach(function (n) { el.addEventListener(n, tHide); });
+    };
+    $$(".row").forEach(function (row, i) { bind(row, i); });
+    $$(".piece").forEach(function (p) { bind(p, +p.dataset.idx); });
   }
 
   /* Le reste des animations vit dans un second matchMedia, créé APRÈS la galerie
