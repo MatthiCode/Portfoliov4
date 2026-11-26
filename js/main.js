@@ -263,7 +263,7 @@
     e.preventDefault();
     var wasOpen = menuOpen;
     closeMenu();
-    setTimeout(function () { goTo(t); }, wasOpen ? 350 : 0);
+    setTimeout(function () { goTo(t); }, wasOpen ? 950 : 0);
   });
 
   /* ---------- Curseur ---------- */
