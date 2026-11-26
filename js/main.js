@@ -441,14 +441,10 @@
     finishLoading();
   } else {
     body.classList.add("is-loading");
-    var count = $(".js-count");
-    var counter = { v: 0 };
     var intro = gsap.timeline({ onComplete: finishLoading });
     intro
-      .to(counter, { v: 100, duration: 1.9, ease: "power2.inOut", onUpdate: function () { count.textContent = String(Math.round(counter.v)).padStart(3, "0"); } }, 0)
-      .to(".js-bar", { scaleX: 1, duration: 1.9, ease: "power2.inOut" }, 0)
-      .to(".ticket", { yPercent: -35, opacity: 0, duration: .55, ease: "power3.in" }, "+=.2")
-      .to(".curtain--top", { yPercent: -100, duration: 1.2, ease: "power4.inOut" }, "<.1")
+      .to({}, { duration: .5 })
+      .to(".curtain--top", { yPercent: -100, duration: 1.2, ease: "power4.inOut" })
       .to(".curtain--bottom", { yPercent: 100, duration: 1.2, ease: "power4.inOut" }, "<")
       .add(heroIn, "<.5");
     // filet de sécurité : jamais bloqué derrière le rideau
