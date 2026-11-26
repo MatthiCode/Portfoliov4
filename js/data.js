@@ -39,6 +39,8 @@ window.MUSEE = {
   },
 
 
+  outils: ["Figma", "HTML", "CSS", "JavaScript", "Git", "GitHub", "VS Code", "Illustrator", "Photoshop", "DaVinci Resolve", "GSAP", "Three.js"],
+
   competences: [
     { domaine: "Développement web",         outils: "HTML, CSS, JavaScript, Git / GitHub, VS Code", niveau: 4 },
     { domaine: "UI / UX",                   outils: "Figma, Adobe Illustrator, Photoshop",            niveau: 4 },

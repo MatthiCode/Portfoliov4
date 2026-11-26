@@ -45,6 +45,7 @@
     vedettes.forEach(function (o, i) {
       var fig = document.createElement("figure");
       fig.className = "piece";
+      fig.dataset.idx = D.oeuvres.indexOf(o);
       var ratio = o.ratio || ratios[i % ratios.length];
       var rp = ratio.split("/");
       var wide = parseFloat(rp[0]) / parseFloat(rp[1]) > 1.2;
@@ -85,6 +86,13 @@
 
     // Fabrik Ta Pépite
     S.mountVisual($(".js-fabrik-vis"), { image: D.fabrik.image, scene: D.fabrik.scene, seed: D.fabrik.seed, alt: D.fabrik.nom });
+    // Outils
+    var tools = $(".tools");
+    (D.outils || []).forEach(function (n) {
+      var li = document.createElement("li");
+      li.textContent = n;
+      tools.appendChild(li);
+    });
     // Compétences
     var skills = $(".skills");
     D.competences.forEach(function (c) {
@@ -136,11 +144,13 @@
     // Plan du musée + mini plan
     var plan = $(".plan-list");
     var mini = $(".minimap");
-    var tags = { hall: "Entrée", ateliers: "Projets", fabrik: "Entreprise", archives: "Outils, parcours", "hors-ecran": "Coulisses", sortie: "Contact" };
+    var menuIds = { hall: 1, ateliers: 1, archives: 1 };
     $$("section[id][data-room]").forEach(function (sec) {
-      var li = document.createElement("li");
-      li.innerHTML = '<a href="#' + sec.id + '"><span class="nom">' + esc(sec.dataset.name) + '</span><span class="tag mono">' + esc(tags[sec.id] || "") + "</span></a>";
-      plan.appendChild(li);
+      if (menuIds[sec.id]) {
+        var li = document.createElement("li");
+        li.innerHTML = '<a href="#' + sec.id + '"><span class="nom">' + esc(sec.dataset.name) + "</span></a>";
+        plan.appendChild(li);
+      }
       var m = document.createElement("span");
       m.dataset.room = sec.dataset.room;
       mini.appendChild(m);
@@ -363,8 +373,20 @@
             gsap.to(prev, { opacity: 1, scale: 1, rotation: 0, duration: .5, ease: "power3.out", overwrite: "auto" });
           });
         });
-        regList.addEventListener("mouseleave", function () {
+        var hide = function () {
           gsap.to(prev, { opacity: 0, scale: .92, rotation: -2, duration: .35, ease: "power3.in", overwrite: "auto" });
+        };
+        regList.addEventListener("mouseleave", hide);
+        /* Galerie : l'image du projet suit aussi la souris */
+        $$(".piece").forEach(function (p) {
+          var idx = +p.dataset.idx;
+          p.addEventListener("mouseenter", function (e) {
+            layers.forEach(function (l, j) { l.classList.toggle("is-on", j === idx); });
+            onMove(e);
+            gsap.to(prev, { opacity: 1, scale: 1, rotation: 0, duration: .5, ease: "power3.out", overwrite: "auto" });
+          });
+          p.addEventListener("mousemove", onMove);
+          p.addEventListener("mouseleave", hide);
         });
         return function () { regList.removeEventListener("mousemove", onMove); };
       }
