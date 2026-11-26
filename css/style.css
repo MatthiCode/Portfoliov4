@@ -218,7 +218,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .registre-list .row:hover { opacity: 1; padding-left: 1.2rem; }
 .row.is-ph .t { color: var(--muted); }
 
-.registre-preview { position: fixed; left: 0; top: 0; z-index: 40; width: clamp(260px, 28vw, 440px); aspect-ratio: var(--pr, 4 / 5); pointer-events: none; opacity: 0; background: #fff; padding: 8px;  }
+.registre-preview { position: fixed; left: 0; top: 0; z-index: 40; width: clamp(150px, 15vw, 240px); aspect-ratio: var(--pr, 4 / 5); pointer-events: none; opacity: 0; background: #fff; padding: 8px;  }
 .registre-preview .vis { position: absolute; inset: 8px; }
 .registre-preview .vis svg, .registre-preview .vis .vis-img { object-fit: contain; }
 .registre-preview .vis { opacity: 0; transition: opacity .25s; }
@@ -417,3 +417,6 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .arch-col { min-width: 0; }
 @media (max-width: 899px) { .arch-grid { grid-template-columns: minmax(0, 1fr); } }
 html, body { overflow-x: clip; }
+
+/* Zone de survol élargie jusqu'au bord de l'écran : l'aperçu ne disparaît plus à côté de « Voir » */
+.row { margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); }
