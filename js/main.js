@@ -84,8 +84,6 @@
       S.mountVisual(v, { image: o.image, scene: o.scene || SCENE_CYCLE[i % 6], seed: o.seed || (i + 1) * 13 });
     });
 
-    // Fabrik Ta Pépite
-    S.mountVisual($(".js-fabrik-vis"), { image: D.fabrik.image, scene: D.fabrik.scene, seed: D.fabrik.seed, alt: D.fabrik.nom });
     // Outils
     var tools = $(".tools");
     (D.outils || []).forEach(function (n) {
@@ -401,9 +399,6 @@
      pour que ScrollTrigger calcule les positions avec l'espace de l'épinglage. */
   var mm2 = gsap.matchMedia();
   mm2.add("(prefers-reduced-motion: no-preference)", function () {
-    /* ----- Salle III : Fabrik Ta Pépite ----- */
-    gsap.fromTo(".js-fabrik-vis svg, .js-fabrik-vis img", { scale: 1.25 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".fabrik-grid", start: "top 80%", end: "bottom 30%", scrub: true } });
-
     $$(".tl").forEach(function (t) {
       gsap.from(t, { y: 36, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: t, start: "top 88%", once: true } });
     });

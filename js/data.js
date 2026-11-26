@@ -23,6 +23,7 @@ window.MUSEE = {
   // `ratio` : proportion du cadre. `lien` : page du projet (le dépôt GitHub par défaut,
   // remplace par l'adresse du site en ligne si tu en as une).
   oeuvres: [
+    { titre: "Freiz, compote énergisante", annee: "2025", secteur: "Entrepreneuriat, projet Fabrik Ta Pépite", outils: "Figma, Illustrator", role: "Fondateur et designer", image: "assets/freiz.jpg", ratio: "16 / 9", scene: "forest", seed: 5, vedette: true },
     { titre: "Armor Calistenics, site du collectif", annee: "2026", secteur: "Sport, collectif", outils: "HTML, CSS, JS", role: "Cofondateur, design et développement", image: "assets/oeuvres/armor-site.jpg", ratio: "16 / 9", scene: "storm", seed: 31, lien: "https://github.com/MatthiCode/ArmorCallisthenics", vedette: true },
     { titre: "Armor Calistenics, identité visuelle", secteur: "Identité visuelle", outils: "Logo, Typographies, Palette", role: "Cofondateur, direction artistique", image: "assets/oeuvres/armor-identite.jpg", ratio: "16 / 9", scene: "dusk", seed: 17, vedette: true },
     { titre: "Corde de mains", annee: "2026", secteur: "Expérience interactive", outils: "JavaScript, MediaPipe, Canvas, Web Audio", role: "Conception et développement", image: "assets/oeuvres/corde-de-mains.jpg", ratio: "16 / 9", scene: "glacier", seed: 43, lien: "https://github.com/MatthiCode/Effetinsta", vedette: true },
@@ -31,12 +32,6 @@ window.MUSEE = {
     { titre: "Portfolio v3", annee: "2026", secteur: "Portfolio", outils: "GSAP, Lenis, Three.js", role: "Design et développement", scene: "forest", seed: 71, lien: "https://github.com/MatthiCode/matthv3" }
   ],
 
-  fabrik: {
-    nom: "Freiz",
-    image: "assets/freiz.jpg",
-    scene: "forest",
-    seed: 5
-  },
 
 
   outils: ["Figma", "HTML", "CSS", "JavaScript", "Git", "GitHub", "VS Code", "Illustrator", "Photoshop", "DaVinci Resolve", "GSAP", "Three.js"],
