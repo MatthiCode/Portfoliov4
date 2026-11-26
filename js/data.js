@@ -24,12 +24,12 @@ window.MUSEE = {
   // remplace par l'adresse du site en ligne si tu en as une).
   oeuvres: [
     { titre: "Freiz, compote énergisante", annee: "2025", secteur: "Entrepreneuriat, projet Fabrik Ta Pépite", outils: "Figma, Illustrator", role: "Fondateur et designer", image: "assets/freiz.jpg", ratio: "16 / 9", scene: "forest", seed: 5, vedette: true },
-    { titre: "Armor Calistenics, site du collectif", annee: "2026", secteur: "Sport, collectif", outils: "HTML, CSS, JS", role: "Cofondateur, design et développement", image: "assets/oeuvres/armor-site.jpg", ratio: "16 / 9", scene: "storm", seed: 31, lien: "https://github.com/MatthiCode/ArmorCallisthenics", vedette: true },
+    { titre: "Armor Calistenics, site du collectif", annee: "2026", secteur: "Sport, collectif", outils: "HTML, CSS, JS", role: "Cofondateur, design et développement", image: "assets/oeuvres/armor-site.jpg", ratio: "16 / 9", scene: "storm", seed: 31, lien: "https://matthicode.github.io/ArmorCallisthenics/", vedette: true },
     { titre: "Armor Calistenics, identité visuelle", secteur: "Identité visuelle", outils: "Logo, Typographies, Palette", role: "Cofondateur, direction artistique", image: "assets/oeuvres/armor-identite.jpg", ratio: "16 / 9", scene: "dusk", seed: 17, vedette: true },
-    { titre: "Corde de mains", annee: "2026", secteur: "Expérience interactive", outils: "JavaScript, MediaPipe, Canvas, Web Audio", role: "Conception et développement", image: "assets/oeuvres/corde-de-mains.jpg", ratio: "16 / 9", scene: "glacier", seed: 43, lien: "https://github.com/MatthiCode/Effetinsta", vedette: true },
+    { titre: "Corde de mains", annee: "2026", secteur: "Expérience interactive", outils: "JavaScript, MediaPipe, Canvas, Web Audio", role: "Conception et développement", image: "assets/oeuvres/corde-de-mains.jpg", ratio: "16 / 9", scene: "glacier", seed: 43, lien: "https://matthicode.github.io/Effetinsta/", vedette: true },
     { titre: "Le Petit Prince, affiche", secteur: "Création graphique", role: "Design graphique", image: "assets/oeuvres/petit-prince.jpg", ratio: "2 / 3", scene: "dusk", seed: 53, vedette: true },
     { titre: "Squeezie, illustration", secteur: "Création graphique", outils: "Illustration vectorielle", role: "Design graphique", image: "assets/oeuvres/squeezie.jpg", ratio: "16 / 9", scene: "gold", seed: 61, vedette: true },
-    { titre: "Portfolio v3", annee: "2026", secteur: "Portfolio", outils: "GSAP, Lenis, Three.js", role: "Design et développement", scene: "forest", seed: 71, lien: "https://github.com/MatthiCode/matthv3" }
+    { titre: "Portfolio v3", annee: "2026", secteur: "Portfolio", outils: "GSAP, Lenis, Three.js", role: "Design et développement", scene: "forest", seed: 71, lien: "https://matthicode.github.io/matthv3/" }
   ],
 
 
