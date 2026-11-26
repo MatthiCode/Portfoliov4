@@ -369,6 +369,7 @@
         regList.addEventListener("mousemove", onMove);
         rows.forEach(function (row, i) {
           row.addEventListener("mouseenter", function () {
+            prev.style.setProperty("--pr", (D.oeuvres[i] && D.oeuvres[i].ratio) || "4 / 5");
             layers.forEach(function (l, j) { l.classList.toggle("is-on", j === i); });
             gsap.to(prev, { opacity: 1, scale: 1, rotation: 0, duration: .5, ease: "power3.out", overwrite: "auto" });
           });
@@ -377,17 +378,6 @@
           gsap.to(prev, { opacity: 0, scale: .92, rotation: -2, duration: .35, ease: "power3.in", overwrite: "auto" });
         };
         regList.addEventListener("mouseleave", hide);
-        /* Galerie : l'image du projet suit aussi la souris */
-        $$(".piece").forEach(function (p) {
-          var idx = +p.dataset.idx;
-          p.addEventListener("mouseenter", function (e) {
-            layers.forEach(function (l, j) { l.classList.toggle("is-on", j === idx); });
-            onMove(e);
-            gsap.to(prev, { opacity: 1, scale: 1, rotation: 0, duration: .5, ease: "power3.out", overwrite: "auto" });
-          });
-          p.addEventListener("mousemove", onMove);
-          p.addEventListener("mouseleave", hide);
-        });
         return function () { regList.removeEventListener("mousemove", onMove); };
       }
     }
@@ -399,6 +389,7 @@
     var tLayers = $$(".vis", tPrev);
     var tShow = function (idx, e) {
       tLayers.forEach(function (l, j) { l.classList.toggle("is-on", j === idx); });
+      tPrev.style.setProperty("--pr", (D.oeuvres[idx] && D.oeuvres[idx].ratio) || "4 / 5");
       var touch = e.pointerType === "touch";
       var w = tPrev.offsetWidth, h = tPrev.offsetHeight;
       var x = e.clientX - w / 2;
@@ -416,7 +407,6 @@
       ["pointerup", "pointercancel", "pointerleave"].forEach(function (n) { el.addEventListener(n, tHide); });
     };
     $$(".row").forEach(function (row, i) { bind(row, i); });
-    $$(".piece").forEach(function (p) { bind(p, +p.dataset.idx); });
   }
 
   /* Le reste des animations vit dans un second matchMedia, créé APRÈS la galerie
