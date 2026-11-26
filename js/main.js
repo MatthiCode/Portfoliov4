@@ -112,16 +112,6 @@
       tl.appendChild(li);
     });
 
-    // Hors écran
-    var hg = $(".hors-grid");
-    D.horsEcran.forEach(function (h, i) {
-      var fig = document.createElement("figure");
-      fig.className = "hors-item";
-      fig.innerHTML = '<div class="vis"></div><figcaption class="cartel"><b>' + esc(h.titre) + "</b>" + esc(h.legende) + "</figcaption>";
-      hg.appendChild(fig);
-      S.mountVisual($(".vis", fig), { image: h.image, scene: h.scene, seed: h.seed, alt: h.titre });
-    });
-
     // Contact
     $(".mail-text").textContent = D.me.email;
     $(".js-mailto").href = "mailto:" + D.me.email;
@@ -144,7 +134,7 @@
     // Plan du musée + mini plan
     var plan = $(".plan-list");
     var mini = $(".minimap");
-    var menuIds = { hall: 1, ateliers: 1, archives: 1, "hors-ecran": 1, sortie: 1 };
+    var menuIds = { hall: 1, ateliers: 1, archives: 1, sortie: 1 };
     $$("section[id][data-room]").forEach(function (sec) {
       if (menuIds[sec.id]) {
         var li = document.createElement("li");
@@ -425,14 +415,6 @@
       gsap.from(t, { y: 36, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: t, start: "top 88%", once: true } });
     });
 
-    /* ----- Salle VI : hors écran ----- */
-    var speeds = [60, 140, 90, 170, 70];
-    $$(".hors-item").forEach(function (it, i) {
-      var s = speeds[i % speeds.length];
-      gsap.fromTo(it, { y: s }, { y: -s, ease: "none", scrollTrigger: { trigger: it, start: "top bottom", end: "bottom top", scrub: true } });
-      gsap.fromTo($(".vis", it), { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 1.4, ease: "power4.inOut", scrollTrigger: { trigger: it, start: "top 88%", once: true } });
-      gsap.from($(".vis svg, .vis .vis-img", it), { scale: 1.35, duration: 1.8, ease: "power3.out", scrollTrigger: { trigger: it, start: "top 88%", once: true } });
-    });
 
     /* ----- Salle VII : sortie ----- */
     gsap.from(".mail", { clipPath: "inset(0 0 100% 0)", y: 50, duration: 1.4, ease: "power4.out", scrollTrigger: { trigger: ".mail", start: "top 92%", once: true } });

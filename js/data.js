@@ -59,11 +59,4 @@ window.MUSEE = {
     { date: "2029",        titre: "Prochaine salle",                texte: "Diplôme en poche, et l'agence en ligne de mire." }
   ],
 
-  horsEcran: [
-    { titre: "La montagne",    legende: "Mon terrain de jeu préféré. Respirer, voir loin, rester humble.", scene: "glacier", seed: 101, image: "assets/hors-ecran/montagne.jpg" },
-    { titre: "Callisthénie",   legende: "Depuis 2024. Du poids du corps, de la patience, de la régularité.", scene: "storm",   seed: 113, image: "assets/hors-ecran/callisthenie.jpg" },
-    { titre: "Badminton",      legende: "Coordination, réactivité, et un peu de stratégie.",                 scene: "dusk",    seed: 127, image: "assets/hors-ecran/badminton.jpg" },
-    { titre: "Projet à deux",  legende: "Construire une vie et des projets à deux. L'équilibre avant tout.", scene: "gold",    seed: 139, image: "assets/hors-ecran/duo.jpg" },
-    { titre: "Le matin",       legende: "Curieux et autodidacte : toujours quelque chose à apprendre.",      scene: "dawn",    seed: 151, image: "assets/hors-ecran/matin.jpg" }
-  ]
 };
