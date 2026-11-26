@@ -330,11 +330,10 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
   .hors-grid { display: flex; flex-direction: column; gap: 8vh; }
   .hors-item { margin-top: 0 !important; }
   .hors-item:nth-child(even) { width: 80%; align-self: flex-end; }
-
-  .registre-preview { display: none; }
 }
 
 @media (max-width: 520px) {
+  .registre-preview { display: none; }
   .row { grid-template-columns: 1fr 2rem; }
   .row .y { display: none; }
 }
