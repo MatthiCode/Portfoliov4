@@ -144,7 +144,7 @@
     // Plan du musée + mini plan
     var plan = $(".plan-list");
     var mini = $(".minimap");
-    var menuIds = { hall: 1, ateliers: 1, archives: 1, "hors-ecran": 1 };
+    var menuIds = { hall: 1, ateliers: 1, archives: 1, "hors-ecran": 1, sortie: 1 };
     $$("section[id][data-room]").forEach(function (sec) {
       if (menuIds[sec.id]) {
         var li = document.createElement("li");
@@ -364,7 +364,7 @@
         var px = gsap.quickTo(prev, "x", { duration: .55, ease: "power3" });
         var py = gsap.quickTo(prev, "y", { duration: .55, ease: "power3" });
         gsap.set(prev, { scale: .92, rotation: -2 });
-        var onMove = function (e) { px(e.clientX + 36); py(e.clientY - prev.offsetHeight / 2); };
+        var onMove = function (e) { px(e.clientX - prev.offsetWidth / 2); py(e.clientY - prev.offsetHeight / 2); };
         var regList = $(".registre-list");
         regList.addEventListener("mousemove", onMove);
         rows.forEach(function (row, i) {
