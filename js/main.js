@@ -144,7 +144,7 @@
     // Plan du musée + mini plan
     var plan = $(".plan-list");
     var mini = $(".minimap");
-    var menuIds = { hall: 1, ateliers: 1, archives: 1 };
+    var menuIds = { hall: 1, ateliers: 1, archives: 1, "hors-ecran": 1 };
     $$("section[id][data-room]").forEach(function (sec) {
       if (menuIds[sec.id]) {
         var li = document.createElement("li");
