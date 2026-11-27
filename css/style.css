@@ -191,8 +191,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 
 .piece { position: relative; flex: none; display: flex; flex-direction: column; gap: 18px; }
 .piece::before { content: ""; position: absolute; left: -35%; right: -35%; top: -34vh; height: 62vh; background: radial-gradient(ellipse 50% 100% at 50% 0, rgba(255, 255, 255, .6), transparent 70%); pointer-events: none; z-index: -1; }
-.piece:nth-of-type(odd)  { margin-top: 6vh; }
-.piece:nth-of-type(even) { margin-top: -4vh; }
+.piece:nth-of-type(odd), .piece:nth-of-type(even) { margin-top: 0; }
 .piece .frame { height: var(--h, 56vh); aspect-ratio: var(--ar, 4 / 5); background: #fff; padding: clamp(8px, .9vw, 14px);  position: relative; }
 .piece .vis { width: 100%; height: 100%; }
 .piece .cartel { max-width: 26em; }

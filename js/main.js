@@ -50,7 +50,7 @@
       var rp = ratio.split("/");
       var wide = parseFloat(rp[0]) / parseFloat(rp[1]) > 1.2;
       fig.style.setProperty("--ar", ratio);
-      fig.style.setProperty("--h", wide ? "38vh" : "56vh");
+      fig.style.setProperty("--h", "56vh");
       var lines = [];
       var head = [o.annee, o.secteur].filter(Boolean).join(", ");
       if (head) lines.push(esc(head));
