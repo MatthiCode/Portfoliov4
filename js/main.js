@@ -61,7 +61,7 @@
         '<figcaption class="cartel"><b>' + esc(o.titre) + "</b>" + lines.join("<br>") +
         (o.placeholder ? '<br><span class="ph-tag">Fiche d\'exemple</span>' : "") +
         "</figcaption>" +
-        (o.lien ? '<a class="btn piece-link" href="' + esc(o.lien) + '" target="_blank" rel="noopener">Voir le projet</a>' : "");
+        (o.lien || o.image ? '<a class="btn piece-link" href="' + esc(o.lien || o.image) + '" target="_blank" rel="noopener">Voir le projet</a>' : "");
       gal.insertBefore(fig, end);
       S.mountVisual($(".vis", fig), { image: o.image, scene: o.scene || SCENE_CYCLE[i % 6], seed: o.seed || (i + 1) * 13, alt: o.titre });
     });
