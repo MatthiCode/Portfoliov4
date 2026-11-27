@@ -75,8 +75,9 @@
       var inner =
         '<span class="t">' + esc(o.titre) + '</span>' +
         '<span class="s">' + esc(o.secteur || "") + '</span><span class="y">' + esc(o.annee || "") + "</span>" +
-        '<span class="go" aria-hidden="true">' + (o.lien ? "Voir" : "") + "</span>";
-      li.innerHTML = o.lien ? '<a href="' + esc(o.lien) + '" target="_blank" rel="noopener" style="display:contents">' + inner + "</a>" : inner;
+        '<span class="go" aria-hidden="true">' + "Voir" + "</span>";
+      var href = o.lien || o.image;
+      li.innerHTML = href ? '<a href="' + esc(href) + '" target="_blank" rel="noopener" style="display:contents">' + inner + "</a>" : inner;
       list.appendChild(li);
 
       var v = document.createElement("div");
