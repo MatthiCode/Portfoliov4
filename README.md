@@ -10,7 +10,7 @@ python3 -m http.server 8000   # puis http://localhost:8000
 
 ## Tout modifier au même endroit : `js/data.js`
 - `me` : email, liens (LinkedIn, GitHub, Instagram), photo plein fond du hall (`hero`, fichier `assets/hero.jpg`)
-- `oeuvres` : les 15 sites (les 6 premiers sont dans la galerie, tous sont dans le registre)
+- `oeuvres` : les 15 sites (les premiers sont dans la galerie, tous sont dans le registre)
   - champs : `titre`, `annee`, `secteur`, `outils`, `role`, `image`, `lien` (optionnel, rend la ligne cliquable)
   - supprime `placeholder: true` pour retirer l'étiquette « Fiche d'exemple »
 - `fabrik`, `competences`, `parcours`, `horsEcran`
