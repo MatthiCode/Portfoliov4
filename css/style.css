@@ -418,3 +418,19 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 html, body { overflow-x: clip; }
 
 .row .t { justify-self: start; }
+
+/* ---------- Mascotte du hall ---------- */
+/* Tout est en % du corps (156 x 238 px) : la mascotte garde ses proportions à toutes les tailles. */
+.mascotte {
+  position: absolute; z-index: 3; right: clamp(12px, 5vw, 90px); bottom: 0;
+  height: clamp(130px, 30vh, 300px); aspect-ratio: 156 / 238;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none;
+}
+.mascotte-in { position: relative; width: 100%; height: 100%; transform-origin: 50% 100%; }
+.mascotte img { position: absolute; display: block; max-width: none; pointer-events: none; -webkit-user-drag: none; }
+.mascotte-corps { inset: 0; width: 100%; height: 100%; }
+/* pupille = taille et centre au repos, en % du corps */
+.mascotte-pupille { will-change: transform; transform-origin: 50% 50%; }
+.mascotte-pupille--g { width: 9.2%; height: 9.4%; left: 2.4%;  top: 33.6%; }
+.mascotte-pupille--d { width: 16.4%; height: 12.8%; left: 35.7%; top: 29.5%; }
+@media (max-width: 899px) { .mascotte { height: clamp(110px, 20vh, 170px); right: 10px; } }
